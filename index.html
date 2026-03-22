@@ -15,6 +15,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.3/babel.min.js"></script>
 
+    <!-- Google AdSense Base Script (הכנס את ה-Publisher ID האמיתי שלך כאן) -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7832188543711021" crossorigin="anonymous"></script>
+
     <!-- גופן מעוגל וילדותי (Varela Round / Rubik) -->
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;800;900&display=swap" rel="stylesheet">
 
@@ -37,6 +40,7 @@
             border-radius: 24px;
             box-shadow: 6px 8px 0px 0px #1e293b;
             transition: all 0.15s ease-out;
+            height: 100%;
         }
 
         .toy-card:hover {
@@ -44,51 +48,59 @@
             box-shadow: 10px 14px 0px 0px #1e293b;
         }
 
-        /* כפתור משחק ענקי שמרגיש כמו כפתור אמיתי */
         .toy-button {
-            background-color: #22c55e; /* ירוק בוהק */
+            background-color: #22c55e;
             border: 4px solid #14532d;
             border-radius: 16px;
             box-shadow: 0px 6px 0px 0px #166534;
             transition: all 0.1s;
         }
 
-        .toy-button:hover {
-            background-color: #4ade80;
-        }
-
+        .toy-button:hover { background-color: #4ade80; }
         .toy-button:active {
             transform: translateY(6px);
             box-shadow: 0px 0px 0px 0px #166534;
         }
 
-        /* כפתור קפה צהוב */
         .coffee-button {
-            background-color: #facc15; /* צהוב */
+            background-color: #facc15;
             border: 4px solid #1e293b;
             border-radius: 14px;
             box-shadow: 0px 4px 0px 0px #1e293b;
             transition: all 0.1s;
         }
 
-        .coffee-button:hover {
-            background-color: #fef08a; /* צהוב בהיר יותר בהובר */
-        }
-
+        .coffee-button:hover { background-color: #fef08a; }
         .coffee-button:active {
             transform: translateY(4px);
             box-shadow: 0px 0px 0px 0px #1e293b;
         }
 
-        /* טקסט מצויר עם קו מתאר שחור */
         .text-outline {
-            color: #fde047; /* צהוב בננה */
+            color: #fde047;
             text-shadow: 
                 -3px -3px 0 #1e293b,  
                  3px -3px 0 #1e293b,
                 -3px  3px 0 #1e293b,
                  3px  3px 0 #1e293b,
-                 5px  5px 0 #1e293b; /* צל נוסף לעומק */
+                 5px  5px 0 #1e293b;
+        }
+
+        /* AdSense Containers */
+        .ad-container-side {
+            position: fixed;
+            top: 100px;
+            width: 160px;
+            height: 600px;
+            z-index: 10;
+        }
+        
+        .ad-container-left { left: 10px; }
+        .ad-container-right { right: 10px; }
+
+        @media (max-width: 1280px) {
+            /* Hide side ads on smaller screens to prevent overlap */
+            .ad-container-side { display: none !important; }
         }
     </style>
 </head>
@@ -96,10 +108,34 @@
     <div id="root" class="min-h-screen flex flex-col relative overflow-hidden"></div>
 
     <script type="text/babel" data-presets="react,env">
-        const { useState } = React;
+        const { useState, useEffect } = React;
 
         // ==========================================
-        // הגדרת המשחקים (כאן אתה מכניס את הקישורים שלך)
+        // רכיב פרסומות מותאם ל-React
+        // ==========================================
+        const AdBanner = ({ className, style, format = "auto", slot = "4308525336" }) => {
+            useEffect(() => {
+                try {
+                    (window.adsbygoogle = window.adsbygoogle || []).push({});
+                } catch (e) {
+                    console.error("AdSense Error: ", e);
+                }
+            }, []);
+
+            return (
+                <div className={`overflow-hidden flex justify-center items-center ${className}`} style={style}>
+                    <ins className="adsbygoogle"
+                         style={{ display: "block", width: "100%", height: "100%" }}
+                         data-ad-client="ca-pub-7832188543711021"
+                         data-ad-slot={slot}
+                         data-ad-format={format}
+                         data-full-width-responsive="true"></ins>
+                </div>
+            );
+        };
+
+        // ==========================================
+        // הגדרת המשחקים
         // ==========================================
         const GAMES_DATA = [
             { 
@@ -135,11 +171,22 @@
         ];
 
         // ==========================================
-        // רכיב העמוד הראשי (הפורטל)
+        // רכיב העמוד הראשי
         // ==========================================
         const App = () => {
             return (
                 <>
+                    {/* פרסומת עליונה מינימליסטית (מעל ההאדר - הגובה המינימלי האפשרי באדסנס הוא 50px) */}
+                    <AdBanner className="w-full bg-slate-100 border-b-2 border-slate-300" style={{ height: '50px', minHeight: '50px' }} format="horizontal" />
+
+                    {/* באנרים צדדיים - מוסתרים במובייל (דרך ה-CSS) */}
+                    <div className="ad-container-side ad-container-right hidden xl:block">
+                        <AdBanner style={{ width: '160px', height: '600px' }} format="vertical" />
+                    </div>
+                    <div className="ad-container-side ad-container-left hidden xl:block">
+                        <AdBanner style={{ width: '160px', height: '600px' }} format="vertical" />
+                    </div>
+
                     {/* Header מודגש ושמח */}
                     <header className="bg-yellow-400 border-b-4 border-slate-800 py-3 px-6 sticky top-0 z-50 flex justify-between items-center shadow-lg">
                         <div className="flex items-center gap-3 cursor-pointer hover:scale-105 transition-transform">
@@ -150,9 +197,10 @@
                         </div>
                     </header>
 
-                    <main className="flex-1 flex flex-col items-center w-full px-4 sm:px-6 lg:px-8 pb-20">
+                    {/* תוכן מרכזי */}
+                    <main className="flex-1 flex flex-col items-center w-full px-4 sm:px-6 lg:px-[180px] pb-20">
                         
-                        {/* Hero Section - צבעוני ומושך מיד את העין */}
+                        {/* Hero Section */}
                         <div className="w-full max-w-5xl mt-12 mb-16 text-center">
                             <h2 className="text-6xl md:text-8xl font-black mb-6 text-outline">
                                 בואו לשחק וללמוד!
@@ -162,84 +210,94 @@
                             </p>
                         </div>
 
-                        {/* תצוגת המשחקים - כרטיסיות צעצוע עבות ומזמינות */}
+                        {/* תצוגת המשחקים + פרסומות מתחת לכל כרטיס */}
                         <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                             {GAMES_DATA.map((game) => (
-                                <div key={game.id} className="toy-card flex flex-col relative group">
-                                    
-                                    {/* תגית בסגנון מדבקה */}
-                                    <div className={`absolute -top-4 -right-4 z-20 px-5 py-2 rounded-xl font-black text-lg text-slate-900 border-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rotate-3 group-hover:rotate-6 transition-transform ${game.badgeColor}`}>
-                                        {game.badge}
+                                <div key={game.id} className="flex flex-col gap-4">
+                                    {/* כרטיס המשחק */}
+                                    <div className="toy-card flex flex-col relative group">
+                                        <div className={`absolute -top-4 -right-4 z-20 px-5 py-2 rounded-xl font-black text-lg text-slate-900 border-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rotate-3 group-hover:rotate-6 transition-transform ${game.badgeColor}`}>
+                                            {game.badge}
+                                        </div>
+
+                                        <a href={game.linkUrl} target={game.linkUrl !== '#' ? "_blank" : "_self"} rel="noopener noreferrer" className="w-full aspect-[4/3] bg-blue-100 rounded-t-xl overflow-hidden border-b-4 border-slate-800 relative flex items-center justify-center cursor-pointer block">
+                                            {game.imageUrl ? (
+                                                <img src={game.imageUrl} alt={game.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+                                            ) : (
+                                                <div className="flex flex-col items-center">
+                                                    <span className="text-8xl mb-2 group-hover:scale-125 transition-transform duration-300">{game.emojiFallback}</span>
+                                                    <span className="font-bold text-slate-500 bg-white/60 px-3 py-1 rounded-lg text-sm border-2 border-slate-300">הכנס תמונה כאן</span>
+                                                </div>
+                                            )}
+                                        </a>
+
+                                        <div className="p-6 flex flex-col flex-1 bg-white rounded-b-xl">
+                                            <h3 className="text-3xl font-black mb-3 text-slate-800">{game.title}</h3>
+                                            <p className="text-slate-600 text-xl font-semibold leading-snug mb-6 flex-1">{game.desc}</p>
+                                            
+                                            <div className="flex flex-col gap-3 mt-auto">
+                                                <a href={game.linkUrl} target={game.linkUrl !== '#' ? "_blank" : "_self"} rel="noopener noreferrer" className="toy-button w-full text-center py-4 flex items-center justify-center gap-2 block no-underline">
+                                                    <span className="text-2xl font-black text-white" style={{textShadow: '1px 1px 0px rgba(0,0,0,0.5)'}}>שחק עכשיו!</span>
+                                                    <span className="text-2xl">▶️</span>
+                                                </a>
+                                                <a href="https://www.bitpay.co.il/app/me/1137EFAB-6B4F-D1BB-FD7E-E08571B1217EC952" target="_blank" rel="noopener noreferrer" className="coffee-button w-full text-center py-3 flex items-center justify-center gap-2 block no-underline">
+                                                    <span className="text-lg font-black text-slate-900">תמכו באתר עם כוס קפה ☕️</span>
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
 
-                                    {/* אזור התמונה (קליק על התמונה מעביר למשחק) */}
-                                    <a href={game.linkUrl} target={game.linkUrl !== '#' ? "_blank" : "_self"} rel="noopener noreferrer" className="w-full aspect-[4/3] bg-blue-100 rounded-t-xl overflow-hidden border-b-4 border-slate-800 relative flex items-center justify-center cursor-pointer block">
-                                        {game.imageUrl ? (
-                                            <img src={game.imageUrl} alt={game.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
-                                        ) : (
-                                            <div className="flex flex-col items-center">
-                                                <span className="text-8xl mb-2 group-hover:scale-125 transition-transform duration-300">{game.emojiFallback}</span>
-                                                <span className="font-bold text-slate-500 bg-white/60 px-3 py-1 rounded-lg text-sm border-2 border-slate-300">הכנס תמונה כאן</span>
-                                            </div>
-                                        )}
-                                    </a>
-
-                                    {/* תוכן הטקסט והכפתורים */}
-                                    <div className="p-6 flex flex-col flex-1 bg-white rounded-b-xl">
-                                        <h3 className="text-3xl font-black mb-3 text-slate-800">
-                                            {game.title}
-                                        </h3>
-                                        <p className="text-slate-600 text-xl font-semibold leading-snug mb-6 flex-1">
-                                            {game.desc}
-                                        </p>
-                                        
-                                        {/* אזור הכפתורים */}
-                                        <div className="flex flex-col gap-3 mt-auto">
-                                            {/* כפתור "שחק עכשיו" (ירוק) */}
-                                            <a 
-                                                href={game.linkUrl} 
-                                                target={game.linkUrl !== '#' ? "_blank" : "_self"} 
-                                                rel="noopener noreferrer"
-                                                className="toy-button w-full text-center py-4 flex items-center justify-center gap-2 block no-underline"
-                                            >
-                                                <span className="text-2xl font-black text-white" style={{textShadow: '1px 1px 0px rgba(0,0,0,0.5)'}}>שחק עכשיו!</span>
-                                                <span className="text-2xl">▶️</span>
-                                            </a>
-                                            
-                                            {/* כפתור "תמכו באתר" (צהוב) */}
-                                            <a 
-                                                href="https://www.bitpay.co.il/app/me/1137EFAB-6B4F-D1BB-FD7E-E08571B1217EC952" 
-                                                target="_blank" 
-                                                rel="noopener noreferrer"
-                                                className="coffee-button w-full text-center py-3 flex items-center justify-center gap-2 block no-underline"
-                                            >
-                                                <span className="text-lg font-black text-slate-900">תמכו באתר עם כוס קפה ☕️</span>
-                                            </a>
-                                        </div>
+                                    {/* פרסומת מתחת לכרטיס המשחק (יופיע גם במובייל וגם בדסקטופ) */}
+                                    <div className="bg-white/50 border-2 border-slate-300 rounded-xl p-2 shadow-inner">
+                                        <AdBanner className="w-full" style={{ minHeight: '100px' }} format="rectangle" />
                                     </div>
                                 </div>
                             ))}
                         </div>
 
-                        {/* אזור הורים / SEO (מעוצב כשלט הוראות שמח) */}
-                        <article id="about" className="w-full max-w-4xl mt-32 toy-card p-8 md:p-12 relative rotate-1">
+                        {/* אזור הורים / SEO / פיתוח המוח */}
+                        <article id="about" className="w-full max-w-4xl mt-20 toy-card p-8 md:p-12 relative rotate-1 mb-10">
                             <h2 className="text-4xl font-black text-slate-800 mb-6 border-b-4 border-slate-200 pb-4">
-                                פינת ההורים 🦉
+                                חדר הכושר של המוח 🧠
                             </h2>
-                            <div className="text-xl font-semibold text-slate-700 space-y-4">
+                            <div className="text-xl font-semibold text-slate-700 space-y-6">
                                 <p>
-                                    ברוכים הבאים למתחם המשחקים שלנו! כאן המסך הופך לכלי עבודה.
-                                    המשחקים נבחרו כדי לשפר את הזיכרון, לתרגל שפות ולפתח את החשיבה המרחבית, הכל מתוך הנאה.
+                                    למה משחקים כל כך חשובים לפיתוח המוח? מעבר להנאה, לצחוק ולזמן הפנאי, משחקים הם דרך מוכחת מדעית לפיתוח מיומנויות קריטיות אצל ילדים. 
                                 </p>
-                                <div className="bg-yellow-100 p-6 rounded-2xl border-4 border-yellow-400 mt-6">
-                                    <h3 className="font-black text-2xl text-yellow-800 mb-2">💡 טיפ מנצח:</h3>
+                                
+                                <ul className="list-disc pr-6 space-y-3">
+                                    <li><strong>זיכרון וריכוז:</strong> משחקים דורשים מהמוח לזכור חוקים, תבניות ומהלכים קודמים, מה שמחזק את הזיכרון לטווח הקצר.</li>
+                                    <li><strong>פתרון בעיות:</strong> כל משחק מציב אתגר. מציאת הדרך לנצח מפתחת חשיבה ביקורתית ויכולת אנליטית.</li>
+                                    <li><strong>התמודדות עם תסכולים:</strong> במשחק גם מפסידים לפעמים. זוהי הזדמנות מצוינת לתרגל חוסן נפשי וויסות רגשי בסביבה בטוחה.</li>
+                                    <li><strong>העשרת שפה:</strong> במיוחד במשחקי מילים או משחקים בשפות זרות, אוצר המילים גדל בצורה טבעית וללא מאמץ.</li>
+                                </ul>
+
+                                <div className="bg-yellow-100 p-6 rounded-2xl border-4 border-yellow-400 mt-6 transform -rotate-1">
+                                    <h3 className="font-black text-2xl text-yellow-800 mb-2">💡 טיפ מנצח להורים:</h3>
                                     <p className="text-yellow-900">
-                                        שבו לידם! השתתפות שלכם הופכת כל משחק לזמן איכות ומעצימה את חוויית הלמידה של הילד פי כמה.
+                                        שבו לידם! השתתפות שלכם הופכת כל משחק לזמן איכות ומעצימה את חוויית הלמידה של הילד פי כמה. עודדו אותם לא לוותר גם כשקשה.
                                     </p>
                                 </div>
                             </div>
                         </article>
                     </main>
+
+                    {/* Footer - תחתית העמוד */}
+                    <footer className="w-full bg-slate-800 text-slate-300 py-10 mt-auto border-t-8 border-yellow-400 flex flex-col items-center text-center">
+                        <div className="text-4xl mb-4">👾</div>
+                        <h3 className="text-2xl font-black text-white mb-2">ThinkFun Games</h3>
+                        <p className="mb-6 font-semibold max-w-md px-4">
+                            משחקים שכיף לשחק וטוב ללמוד מהם. בואו להפעיל את המוח!
+                        </p>
+                        
+                        <a href="mailto:thinkfungames@gmail.com" className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-3 px-8 rounded-full border-2 border-slate-900 shadow-[4px_4px_0px_0px_#0f172a] transition-all hover:translate-y-1 hover:shadow-[2px_2px_0px_0px_#0f172a] mb-8">
+                            צרו קשר: thinkfungames@gmail.com ✉️
+                        </a>
+
+                        <div className="text-sm opacity-70 border-t border-slate-600 pt-6 w-full max-w-2xl px-4">
+                            &copy; 2026 כל הזכויות שמורות ל-ThinkFun Games.
+                        </div>
+                    </footer>
                 </>
             );
         };
@@ -249,5 +307,6 @@
     </script>
 </body>
 </html>
+
 
 
