@@ -158,7 +158,7 @@
 
             // בדיקת התשובה במודאל
             const verifyMathAndRedirect = () => {
-                if (mathAnswer.trim() === 6+7) {
+                if (mathAnswer.trim() === '13') {
                     window.open(supportModal.url, '_blank', 'noopener,noreferrer');
                     setSupportModal({ isOpen: false, url: '' });
                 } else {
