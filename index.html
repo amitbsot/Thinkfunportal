@@ -30,7 +30,7 @@
             background-image: radial-gradient(#bae6fd 15%, transparent 15%);
             background-size: 30px 30px;
             overflow-x: hidden;
-            scroll-behavior: smooth;
+            scroll-behavior: smooth; /* זה מה שעושה את הגלילה החלקה! */
         }
 
         /* --- עיצוב האפליקציה ב-React --- */
@@ -147,8 +147,9 @@
 
     <!-- ========================================================= -->
     <!-- התוכן הקשיח (SEO) - זה מה שגוגלבוט קורא כדי לאשר את האתר! -->
+    <!-- הוספנו ID כדי שהכפתור יוכל לגלול לכאן -->
     <!-- ========================================================= -->
-    <section class="static-seo-section">
+    <section class="static-seo-section" id="brain-gym">
         <div class="seo-container">
             <h2>חדר הכושר של המוח 🧠</h2>
             <p>למה משחקים כל כך חשובים לפיתוח המוח? מעבר להנאה, לצחוק ולזמן הפנאי, משחקים הם דרך מוכחת מדעית לפיתוח מיומנויות קריטיות אצל ילדים. במקום להילחם בזמן המסך, אנחנו רותמים אותו לטובת התפתחות קוגניטיבית.</p>
@@ -221,7 +222,7 @@
         const GAMES_DATA = [
             { id: 'memory', title: 'זיכרון באנגלית', badge: '🗣️ שפות', badgeColor: 'bg-yellow-400 border-yellow-600', desc: 'הפכו את הקלפים, מצאו את הזוגות ולמדו מילים חדשות באנגלית בקלי קלות!', linkUrl: 'https://funmemorygame.vercel.app/', imageUrl: 'IMG_8043.jpeg', emojiFallback: '🎴' },
             { id: 'puzzle', title: 'Fuzzle- פאזל הזזה', badge: '🧩 חשיבה', badgeColor: 'bg-pink-400 border-pink-600', desc: 'העלו תמונה שלכם או בחרו מהגלריה, הזיזו את החלקים למקום הנכון והשלימו את התמונה! משחק שמפעיל את המוח.', linkUrl: 'https://fuzzlefungames.vercel.app/', imageUrl: 'IMG_8045.jpeg', emojiFallback: '🖼️' },
-            { id: 'talio', title: 'Talio - משחק מילים', badge: '👨‍👩‍👧‍👦 חברים', badgeColor: 'bg-purple-400 border-purple-600', desc: 'הצחיקו את כולם! נסו לתאר את המילה בלי להשתמש במילים האסורות.', linkUrl: '#', imageUrl: 'IMG_8044.jpeg', emojiFallback: '🃏' }
+            { id: 'talio', title: 'Talio - משחק מילים', badge: ' בבניה ', badgeColor: 'bg-purple-400 border-purple-600', desc: 'הצחיקו את כולם! נסו לתאר את המילה בלי להשתמש במילים האסורות.', linkUrl: '', imageUrl: 'IMG_8044.jpeg', emojiFallback: '🃏' }
         ];
 
         const App = () => {
@@ -255,6 +256,16 @@
                             <p className="text-2xl md:text-3xl font-bold text-slate-800 bg-white inline-block px-8 py-3 rounded-full border-4 border-slate-800 shadow-[4px_4px_0px_0px_#1e293b] rotate-[-2deg]">
                                 תבחרו משחק ונתחיל 🚀
                             </p>
+                            
+                            {/* כפתור העוגן החדש והמעוצב */}
+                            <div className="mt-8 flex justify-center">
+                                <a 
+                                    href="#brain-gym" 
+                                    className="inline-flex items-center justify-center gap-2 bg-cyan-400 border-4 border-slate-800 rounded-2xl px-6 py-3 text-xl md:text-2xl font-black text-slate-900 shadow-[4px_4px_0px_0px_#1e293b] hover:bg-cyan-300 hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_#1e293b] active:translate-y-2 active:shadow-[0px_0px_0px_0px_#1e293b] transition-all cursor-pointer no-underline"
+                                >
+                                    למה משחקים זה חשוב? 👇
+                                </a>
+                            </div>
                         </div>
 
                         {/* תצוגת המשחקים + פרסומות מתחת לכל כרטיס */}
@@ -266,7 +277,7 @@
                                             {game.badge}
                                         </div>
 
-                                        <a href={game.linkUrl} target={game.linkUrl !== '#' ? "_blank" : "_self"} className="w-full aspect-[4/3] bg-blue-100 rounded-t-xl overflow-hidden border-b-4 border-slate-800 relative flex items-center justify-center cursor-pointer block">
+                                        <a href={game.linkUrl} target={game.linkUrl !== '#' && game.linkUrl !== '' ? "_blank" : "_self"} className="w-full aspect-[4/3] bg-blue-100 rounded-t-xl overflow-hidden border-b-4 border-slate-800 relative flex items-center justify-center cursor-pointer block">
                                             {game.imageUrl ? (
                                                 <img src={game.imageUrl} alt={game.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
                                             ) : (
@@ -282,7 +293,7 @@
                                             <p className="text-slate-600 text-xl font-semibold leading-snug mb-6 flex-1">{game.desc}</p>
                                             
                                             <div className="flex flex-col gap-3 mt-auto">
-                                                <a href={game.linkUrl} target={game.linkUrl !== '#' ? "_blank" : "_self"} className="toy-button w-full text-center py-4 flex items-center justify-center gap-2 block no-underline">
+                                                <a href={game.linkUrl} target={game.linkUrl !== '#' && game.linkUrl !== '' ? "_blank" : "_self"} className="toy-button w-full text-center py-4 flex items-center justify-center gap-2 block no-underline">
                                                     <span className="text-2xl font-black text-white" style={{textShadow: '1px 1px 0px rgba(0,0,0,0.5)'}}>שחק עכשיו!</span>
                                                     <span className="text-2xl">▶️</span>
                                                 </a>
