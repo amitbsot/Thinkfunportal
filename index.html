@@ -44,7 +44,7 @@
 
         /* --- עיצוב בלוק ה-SEO הקשיח --- */
         .static-seo-section { background-color: #ffffff; border-top: 8px solid #1e293b; padding: 60px 20px; color: #334155; line-height: 1.8; position: relative; z-index: 10; }
-        .about-section { background-color: #f8fafc; } /* רקע שונה לאודות להפרדה ויזואלית */
+        .about-section { background-color: #f8fafc; }
         .seo-container { max-width: 900px; margin: 0 auto; }
         .seo-container h2 { color: #1e293b; font-size: 2.5rem; font-weight: 900; margin-bottom: 25px; margin-top: 40px; border-bottom: 4px solid #fde047; display: inline-block; padding-bottom: 5px; }
         .seo-container h3 { color: #2563eb; font-size: 1.8rem; font-weight: 800; margin-bottom: 15px; margin-top: 30px; }
@@ -57,13 +57,19 @@
         .about-card p { margin-bottom: 15px; }
 
         .legal-footer { background-color: #1e293b; color: #94a3b8; padding: 40px 20px; text-align: center; }
-        .legal-footer a { color: #fde047; text-decoration: none; font-weight: bold; margin: 0 15px; transition: color 0.2s; }
+        .legal-footer a { color: #fde047; text-decoration: none; font-weight: bold; margin: 0 15px; transition: color 0.2s; cursor: pointer; }
         .legal-footer a:hover { text-decoration: underline; color: #fef08a; }
 
         .ad-container-side { position: fixed; top: 100px; width: 160px; height: 600px; z-index: 10; background:rgba(255,255,255,0.8); border: 2px solid #1e293b; border-radius: 10px; }
         .ad-container-left { left: 10px; }
         .ad-container-right { right: 10px; }
         @media (max-width: 1280px) { .ad-container-side { display: none !important; } }
+        
+        /* עיצוב גלילה פנימית במודאלים הסטטיים */
+        .custom-scrollbar::-webkit-scrollbar { width: 8px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
     </style>
 </head>
 <body class="text-slate-800 antialiased selection:bg-yellow-300 selection:text-slate-900">
@@ -125,18 +131,81 @@
         <div style="margin-bottom: 20px;">
             <span class="text-3xl">👾</span>
             <h3 class="text-xl text-white font-bold mt-2">ThinkFun Games</h3>
-            <p style="margin-top: 5px; margin-bottom: 20px;">משחקים שכיף לשחק וטוב ללמוד מהם.<br>יש לכם רעיון למשחק? בא לכם ללמוד איך ליצור בעצמכם?<br> בואו להפעיל את המוח!</p>
-            <a href="mailto:thinkfungames@gmail.com" style="display:inline-block; background-color:#3b82f6; color:white; padding:10px 20px; border-radius:30px; border:2px solid #0f172a; box-shadow: 3px 3px 0px 0px #0f172a; margin-bottom:20px; text-decoration:none;">צרו קשר: thinkfungames@gmail.com ✉️</a>
+            <p style="margin-top: 5px; margin-bottom: 20px;">משחקים שכיף לשחק וטוב ללמוד מהם.<br>יש לכם רעיון למשחק? בא לכם ללמוד איך ליצור בעצמכם?<br> בואו להפעיל את המוח!</p>            <a href="mailto:thinkfungames@gmail.com" style="display:inline-block; background-color:#3b82f6; color:white; padding:10px 20px; border-radius:30px; border:2px solid #0f172a; box-shadow: 3px 3px 0px 0px #0f172a; margin-bottom:20px; text-decoration:none;">צרו קשר: thinkfungames@gmail.com ✉️</a>
         </div>
-        <div>
-            <a href="#about">אודותינו (About Us)</a> | 
-            <a href="#" onclick="alert('מדיניות הפרטיות שלנו קובעת שאיננו שומרים מידע אישי מזהה של קטינים, והפרסומות באתר עומדות בתקני COPPA לילדים.'); return false;">מדיניות פרטיות (Privacy Policy)</a> | 
-            <a href="#" onclick="alert('השימוש באתר ניתן בחינם למטרות חינוכיות ובידור. אנו עושים מאמץ לשמור על סביבה בטוחה אך האחריות על גלישת ילדים היא על הוריהם.'); return false;">תנאי שימוש (Terms of Service)</a>
+        <div class="flex flex-wrap justify-center gap-4">
+            <a href="#about">אודותינו</a> 
+            <span class="hidden sm:inline">|</span>
+            <a onclick="openStaticModal('privacyModal')">מדיניות פרטיות</a> 
+            <span class="hidden sm:inline">|</span>
+            <a onclick="openStaticModal('termsModal')">תנאי שימוש</a>
         </div>
         <div style="margin-top: 20px; font-size: 0.9em; opacity: 0.6;">
             &copy; 2026 כל הזכויות שמורות ל-ThinkFun Games. 
         </div>
     </footer>
+
+    <div id="privacyModal" class="hidden fixed inset-0 z-[200] bg-slate-900/80 backdrop-blur-sm justify-center items-center p-4">
+        <div class="bg-white rounded-3xl p-6 md:p-8 max-w-2xl w-full shadow-2xl border-4 border-slate-800 relative flex flex-col max-h-[85vh]">
+            <button onclick="closeStaticModal('privacyModal')" class="absolute top-4 right-5 text-slate-400 hover:text-red-500 font-black text-2xl transition-colors">✕</button>
+            <h2 class="text-3xl font-black text-slate-800 mb-6 border-b-4 border-blue-400 pb-2 inline-block self-start">מדיניות פרטיות 🔒</h2>
+            <div class="overflow-y-auto custom-scrollbar flex-1 pr-4 text-slate-700 space-y-4 font-medium text-lg leading-relaxed">
+                <p>אנו ב-<strong>ThinkFun Games</strong> שמים דגש עליון על הגנת הפרטיות, במיוחד כשמדובר בסביבה המיועדת גם לילדים.</p>
+                <h4 class="font-black text-slate-800 text-xl mt-4">1. איסוף מידע אישי וקטינים (COPPA)</h4>
+                <p>האתר תוכנן כסביבה בטוחה. איננו דורשים יצירת חשבון, איננו מבקשים פרטים מזהים (כגון שם, כתובת או טלפון), ואיננו אוספים באופן יזום מידע אישי מזהה (PII) מקטינים, בהתאם לתקנות הגנת הפרטיות של ילדים ברשת (COPPA).</p>
+                <h4 class="font-black text-slate-800 text-xl mt-4">2. שימוש בקבצי עוגיות (Cookies) ואנליטיקה</h4>
+                <p>לצורך תפעול שוטף, שיפור חוויית המשחק והבנת התנועה באתר, אנו עושים שימוש בשירותי אנליטיקה (כגון Vercel Web Analytics). כלים אלו אוספים נתונים אנונימיים בלבד (כמו סוג הדפדפן, זמן שהייה באתר ואילו משחקים שוחקו).</p>
+                <h4 class="font-black text-slate-800 text-xl mt-4">3. פרסומות צד שלישי (Google AdSense)</h4>
+                <p>כדי שנוכל להמשיך להפעיל את האתר בחינם, אנו מציגים פרסומות באמצעות Google AdSense. אנו מפעילים הגדרות בטיחות מחמירות כדי להבטיח שהמודעות המוצגות ראויות לכל המשפחה. עם זאת, רשתות הפרסום עשויות להשתמש בקבצי עוגיות כדי להתאים את המודעות. גלישת ילדים באתר וכן לחיצה על פרסומות צריכות להיעשות בליווי ובהשגחת הורים.</p>
+                <h4 class="font-black text-slate-800 text-xl mt-4">4. יצירת קשר</h4>
+                <p>בכל שאלה או בקשה הנוגעת לפרטיות, ניתן לפנות אלינו לכתובת המייל המופיעה בתחתית האתר.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="termsModal" class="hidden fixed inset-0 z-[200] bg-slate-900/80 backdrop-blur-sm justify-center items-center p-4">
+        <div class="bg-white rounded-3xl p-6 md:p-8 max-w-2xl w-full shadow-2xl border-4 border-slate-800 relative flex flex-col max-h-[85vh]">
+            <button onclick="closeStaticModal('termsModal')" class="absolute top-4 right-5 text-slate-400 hover:text-red-500 font-black text-2xl transition-colors">✕</button>
+            <h2 class="text-3xl font-black text-slate-800 mb-6 border-b-4 border-yellow-400 pb-2 inline-block self-start">תנאי שימוש 📜</h2>
+            <div class="overflow-y-auto custom-scrollbar flex-1 pr-4 text-slate-700 space-y-4 font-medium text-lg leading-relaxed">
+                <p>ברוכים הבאים ל-<strong>ThinkFun Games</strong>. השימוש באתר ובמשחקים הכלולים בו כפוף לתנאים המפורטים מטה. גלישתך באתר מהווה את הסכמתך המלאה לתנאים אלו.</p>
+                
+                <h4 class="font-black text-red-600 text-xl mt-4">1. קניין רוחני וזכויות יוצרים (איסור שימוש מסחרי)</h4>
+                <p>כל התכנים המופיעים באתר, לרבות (אך לא רק) המשחקים, קטעי הקוד, העיצוב הגרפי, הטקסטים, הלוגואים והרעיונות, הינם <strong>רכושו הבלעדי של מפעיל האתר</strong> ומוגנים על פי חוקי זכויות היוצרים בישראל ובעולם.</p>
+                <ul class="list-disc pr-5 font-bold">
+                    <li>חל איסור מוחלט להעתיק, לשכפל, להפיץ, לפרסם או לשדר כל חלק מהאתר.</li>
+                    <li><strong>חל איסור מוחלט לעשות כל שימוש מסחרי</strong> בתכני האתר או במשחקים ללא קבלת אישור מפורש מראש ובכתב מהנהלת האתר.</li>
+                    <li>אין לבצע "הנדסה לאחור" (Reverse Engineering) לקוד המשחקים.</li>
+                </ul>
+
+                <h4 class="font-black text-slate-800 text-xl mt-4">2. אופי השימוש באתר</h4>
+                <p>האתר מיועד לשימוש אישי, חינוכי ופרטי בלבד. אנו מעודדים גננות, מורים והורים לעשות שימוש באתר במסגרות חינוכיות, כל עוד השימוש נעשה דרך הקישור המקורי של האתר (ללא העתקת המשחקים לשרתים אחרים) וללא גביית תשלום עבור השימוש בהם.</p>
+                
+                <h4 class="font-black text-slate-800 text-xl mt-4">3. הגבלת אחריות</h4>
+                <p>המשחקים והשירותים באתר ניתנים לשימוש כמות שהם (״As Is״). מפעיל האתר לא יישא בשום אחריות לכל נזק, ישיר או עקיף, שייגרם למשתמש, למחשב או למכשיר הסלולרי כתוצאה מהשימוש באתר, כולל אובדן נתונים או תקלות טכניות.</p>
+
+                <h4 class="font-black text-slate-800 text-xl mt-4">4. שינויים בתנאים</h4>
+                <p>הנהלת האתר שומרת לעצמה את הזכות לעדכן או לשנות את תנאי השימוש ומדיניות הפרטיות בכל עת וללא הודעה מוקדמת. תוקף השינויים הוא מרגע פרסומם באתר.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // פונקציות לפתיחה וסגירה של מודאלים הסטטיים (בלי ריאקט)
+        function openStaticModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden'; // מניעת גלילה של העמוד מאחורה
+        }
+
+        function closeStaticModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto'; // החזרת הגלילה
+        }
+    </script>
 
     <script type="text/babel" data-presets="react,env">
         const { useState, useEffect } = React;
@@ -170,7 +239,7 @@
             const [supportModal, setSupportModal] = useState({ isOpen: false, url: '' });
             const [mathAnswer, setMathAnswer] = useState('');
             const [mathError, setMathError] = useState(false);
-            const [isMenuOpen, setIsMenuOpen] = useState(false); // סטייט לתפריט המבורגר
+            const [isMenuOpen, setIsMenuOpen] = useState(false);
 
             const handleSupportClick = (url) => {
                 setSupportModal({ isOpen: true, url: url });
@@ -245,11 +314,8 @@
                         <AdBanner style={{ width: '160px', height: '600px' }} format="vertical" />
                     </div>
 
-                    {/* ההאדר החדש עם תפריט ההמבורגר */}
                     <header className="bg-yellow-400 border-b-4 border-slate-800 py-3 px-4 sm:px-6 sticky top-0 z-50 shadow-lg">
                         <div className="max-w-7xl mx-auto flex justify-between items-center relative">
-                            
-                            {/* כפתור המבורגר (ממוקם בימין המסך כי זה RTL) */}
                             <button 
                                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                                 className="text-4xl text-slate-800 hover:scale-110 transition-transform focus:outline-none bg-white/50 w-12 h-12 rounded-xl flex items-center justify-center border-2 border-slate-800 shadow-[2px_2px_0px_0px_#1e293b] active:translate-y-1 active:shadow-none"
@@ -258,7 +324,6 @@
                                 {isMenuOpen ? '✕' : '☰'}
                             </button>
 
-                            {/* לוגו (ממוקם בשמאל המסך) */}
                             <div className="flex items-center gap-2 sm:gap-3 cursor-pointer hover:scale-105 transition-transform" onClick={() => window.scrollTo(0,0)}>
                                 <div className="text-3xl sm:text-4xl filter drop-shadow-md">🎮</div>
                                 <h1 className="text-3xl sm:text-4xl font-black text-slate-800 tracking-tight" style={{textShadow: '2px 2px 0px #fff'}}>
@@ -266,7 +331,6 @@
                                 </h1>
                             </div>
 
-                            {/* התפריט הנפתח */}
                             {isMenuOpen && (
                                 <div className="absolute top-full right-0 mt-4 w-64 bg-white border-4 border-slate-800 rounded-2xl shadow-[6px_6px_0px_0px_#1e293b] p-3 flex flex-col gap-2 z-50 animate-fade-in-down">
                                     <a href="#about" onClick={() => setIsMenuOpen(false)} className="text-xl font-bold text-slate-700 hover:text-blue-600 hover:bg-slate-100 p-3 rounded-xl transition-colors no-underline flex items-center gap-3">
