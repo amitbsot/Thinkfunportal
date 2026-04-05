@@ -6,7 +6,7 @@
     <title>ThinkFun - משחקים ולומדים! | משחקים חינוכיים לילדים</title>
     
     <meta name="description" content="פורטל משחקים חינוכיים לילדים. שחקו במשחקי זיכרון, פאזלים ומשחקי חברה. למידת שפות, פיתוח חשיבה מרחבית וזמן איכות למשפחה.">
-    <meta name="keywords" content="משחקים לילדים, משחקים חינוכיים, משחק זיכרון באנגלית, פאזל הזזה, התפתחות הילד">
+    <meta name="keywords" content="משחקים לילדים, משחקים חינוכיים, משחק זיכרון באנגלית, פאזל הזזה, התפתחות הילד, חינוך מיוחד, נגישות">
     
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7832188543711021" crossorigin="anonymous"></script>
 
@@ -44,6 +44,7 @@
 
         /* --- עיצוב בלוק ה-SEO הקשיח --- */
         .static-seo-section { background-color: #ffffff; border-top: 8px solid #1e293b; padding: 60px 20px; color: #334155; line-height: 1.8; position: relative; z-index: 10; }
+        .about-section { background-color: #f8fafc; } /* רקע שונה לאודות להפרדה ויזואלית */
         .seo-container { max-width: 900px; margin: 0 auto; }
         .seo-container h2 { color: #1e293b; font-size: 2.5rem; font-weight: 900; margin-bottom: 25px; margin-top: 40px; border-bottom: 4px solid #fde047; display: inline-block; padding-bottom: 5px; }
         .seo-container h3 { color: #2563eb; font-size: 1.8rem; font-weight: 800; margin-bottom: 15px; margin-top: 30px; }
@@ -52,9 +53,12 @@
         .seo-container li { font-size: 1.15rem; margin-bottom: 10px; padding-right: 30px; position: relative; }
         .seo-container li::before { content: '⭐'; position: absolute; right: 0; top: 2px; }
 
+        .about-card { text-align: right; background: white; padding: 35px; border-radius: 20px; border: 4px solid #e2e8f0; box-shadow: 6px 6px 0px 0px #cbd5e1; margin-top: 20px; }
+        .about-card p { margin-bottom: 15px; }
+
         .legal-footer { background-color: #1e293b; color: #94a3b8; padding: 40px 20px; text-align: center; }
-        .legal-footer a { color: #fde047; text-decoration: none; font-weight: bold; margin: 0 15px; }
-        .legal-footer a:hover { text-decoration: underline; }
+        .legal-footer a { color: #fde047; text-decoration: none; font-weight: bold; margin: 0 15px; transition: color 0.2s; }
+        .legal-footer a:hover { text-decoration: underline; color: #fef08a; }
 
         .ad-container-side { position: fixed; top: 100px; width: 160px; height: 600px; z-index: 10; background:rgba(255,255,255,0.8); border: 2px solid #1e293b; border-radius: 10px; }
         .ad-container-left { left: 10px; }
@@ -70,6 +74,25 @@
     </div>
 
     <div id="root" class="w-full flex flex-col relative overflow-hidden"></div>
+
+    <section class="static-seo-section about-section" id="about">
+        <div class="seo-container text-center">
+            <h2>הסיפור שלנו ❤️</h2>
+            <p style="font-size: 1.3rem; margin-bottom: 10px; font-weight: 600; color: #475569;">
+                מאחורי כל משחק באתר הזה, עומד חזון גדול ושותפים קטנים-גדולים.
+            </p>
+            
+            <div class="about-card">
+                <p>שלום! נעים להכיר. אני מנהל מוצר ביומיום, אבל הלב שלי תמיד פעם בעולמות החינוך. לאחר שעברתי הכשרה מקצועית בחינוך מיוחד, הבנתי שיש פער עצום בין הקצב המסחרר שבו הטכנולוגיה מתפתחת – לבין האופן שבו ילדים עם צרכים שונים חווים וצורכים אותה. הפרויקט הזה נולד מתוך מטרה אחת ברורה: <strong>להנגיש את העולם הדיגיטלי וטכנולוגיות הבינה המלאכותית (AI) לכולם, בכל רמה ובכל סגנון למידה.</strong></p>
+                
+                <p>אבל הקסם האמיתי של האתר לא נוצר רק ממקלדת וקוד. <strong>המשחקים שאתם רואים כאן פותחו, נבדקו ושופרו יד ביד עם תלמידים מדהימים עם לקויות למידה.</strong> הם היו 'שחקני הבטא' הראשונים שלנו, המבקרים הכי כנים שלנו, ושותפים מלאים ופעילים לתהליך היצירה. בזכותם, למדנו לדייק כל כפתור, כל אנימציה וכל צליל, כדי לוודא שהמשחקים לא רק "יפים", אלא באמת מכילים, ברורים ומעצימים.</p>
+                
+                <p style="color: #2563eb; font-weight: 900; font-size: 1.35rem; margin-top: 25px; text-align: center; line-height: 1.5;">
+                    כי לכל ילד ולכל ילדה מגיעה ההזדמנות להרגיש תחושת מסוגלות,<br> לחייך כשהם מצליחים, ולגלות שהם יכולים לכבוש כל שלב – גם במשחק, וגם בחיים.
+                </p>
+            </div>
+        </div>
+    </section>
 
     <section class="static-seo-section" id="brain-gym">
         <div class="seo-container">
@@ -98,7 +121,7 @@
         </div>
     </section>
 
-    <footer class="legal-footer">
+    <footer class="legal-footer" id="footer-contact">
         <div style="margin-bottom: 20px;">
             <span class="text-3xl">👾</span>
             <h3 class="text-xl text-white font-bold mt-2">ThinkFun Games</h3>
@@ -106,9 +129,9 @@
             <a href="mailto:thinkfungames@gmail.com" style="display:inline-block; background-color:#3b82f6; color:white; padding:10px 20px; border-radius:30px; border:2px solid #0f172a; box-shadow: 3px 3px 0px 0px #0f172a; margin-bottom:20px; text-decoration:none;">צרו קשר: thinkfungames@gmail.com ✉️</a>
         </div>
         <div>
+            <a href="#about">אודותינו (About Us)</a> | 
             <a href="#" onclick="alert('מדיניות הפרטיות שלנו קובעת שאיננו שומרים מידע אישי מזהה של קטינים, והפרסומות באתר עומדות בתקני COPPA לילדים.'); return false;">מדיניות פרטיות (Privacy Policy)</a> | 
-            <a href="#" onclick="alert('השימוש באתר ניתן בחינם למטרות חינוכיות ובידור. אנו עושים מאמץ לשמור על סביבה בטוחה אך האחריות על גלישת ילדים היא על הוריהם.'); return false;">תנאי שימוש (Terms of Service)</a> | 
-            <a href="#">אודותינו (About Us)</a>
+            <a href="#" onclick="alert('השימוש באתר ניתן בחינם למטרות חינוכיות ובידור. אנו עושים מאמץ לשמור על סביבה בטוחה אך האחריות על גלישת ילדים היא על הוריהם.'); return false;">תנאי שימוש (Terms of Service)</a>
         </div>
         <div style="margin-top: 20px; font-size: 0.9em; opacity: 0.6;">
             &copy; 2026 כל הזכויות שמורות ל-ThinkFun Games. 
@@ -144,26 +167,24 @@
         ];
 
         const App = () => {
-            // State לניהול מודאל הורים
             const [supportModal, setSupportModal] = useState({ isOpen: false, url: '' });
             const [mathAnswer, setMathAnswer] = useState('');
             const [mathError, setMathError] = useState(false);
+            const [isMenuOpen, setIsMenuOpen] = useState(false); // סטייט לתפריט המבורגר
 
-            // פתיחת המודאל
             const handleSupportClick = (url) => {
                 setSupportModal({ isOpen: true, url: url });
                 setMathAnswer('');
                 setMathError(false);
             };
 
-            // בדיקת התשובה במודאל
             const verifyMathAndRedirect = () => {
-                if (mathAnswer.trim() === '13') {
+                if (mathAnswer.trim() === '18') {
                     window.open(supportModal.url, '_blank', 'noopener,noreferrer');
                     setSupportModal({ isOpen: false, url: '' });
                 } else {
                     setMathError(true);
-                    setMathAnswer(''); // מאפס את השדה אם התשובה שגויה
+                    setMathAnswer('');
                 }
             };
 
@@ -178,11 +199,11 @@
                                     className="absolute top-3 right-4 text-slate-400 hover:text-red-500 font-black text-2xl transition-colors"
                                 >✕</button>
                                 <div className="text-6xl mb-4">🛡️</div>
-                                <h3 className="text-3xl font-black text-slate-800 mb-2">שימו לב ❤️</h3>
+                                <h3 className="text-3xl font-black text-slate-800 mb-2">אזור הורים!</h3>
                                 <p className="text-slate-600 mb-6 font-semibold text-lg">אתם עוברים לאזור שאינו מיועד לילדים לתמיכה באתר. כדי להמשיך, אנא פתרו את התרגיל:</p>
                                 
                                 <div className="bg-slate-100 p-4 rounded-xl border-4 border-slate-200 mb-4 text-4xl font-black text-blue-600 tracking-widest" dir="ltr">
-                                    6 + 7 = ?
+                                    6 * 3 = ?
                                 </div>
 
                                 <input 
@@ -224,12 +245,41 @@
                         <AdBanner style={{ width: '160px', height: '600px' }} format="vertical" />
                     </div>
 
-                    <header className="bg-yellow-400 border-b-4 border-slate-800 py-3 px-6 sticky top-0 z-50 flex justify-between items-center shadow-lg">
-                        <div className="flex items-center gap-3 cursor-pointer hover:scale-105 transition-transform" onClick={() => window.scrollTo(0,0)}>
-                            <div className="text-4xl filter drop-shadow-md">🎮</div>
-                            <h1 className="text-4xl font-black text-slate-800 tracking-tight" style={{textShadow: '2px 2px 0px #fff'}}>
-                                Think<span className="text-blue-600">Fun</span>
-                            </h1>
+                    {/* ההאדר החדש עם תפריט ההמבורגר */}
+                    <header className="bg-yellow-400 border-b-4 border-slate-800 py-3 px-4 sm:px-6 sticky top-0 z-50 shadow-lg">
+                        <div className="max-w-7xl mx-auto flex justify-between items-center relative">
+                            
+                            {/* כפתור המבורגר (ממוקם בימין המסך כי זה RTL) */}
+                            <button 
+                                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                                className="text-4xl text-slate-800 hover:scale-110 transition-transform focus:outline-none bg-white/50 w-12 h-12 rounded-xl flex items-center justify-center border-2 border-slate-800 shadow-[2px_2px_0px_0px_#1e293b] active:translate-y-1 active:shadow-none"
+                                aria-label="תפריט"
+                            >
+                                {isMenuOpen ? '✕' : '☰'}
+                            </button>
+
+                            {/* לוגו (ממוקם בשמאל המסך) */}
+                            <div className="flex items-center gap-2 sm:gap-3 cursor-pointer hover:scale-105 transition-transform" onClick={() => window.scrollTo(0,0)}>
+                                <div className="text-3xl sm:text-4xl filter drop-shadow-md">🎮</div>
+                                <h1 className="text-3xl sm:text-4xl font-black text-slate-800 tracking-tight" style={{textShadow: '2px 2px 0px #fff'}}>
+                                    Think<span className="text-blue-600">Fun</span>
+                                </h1>
+                            </div>
+
+                            {/* התפריט הנפתח */}
+                            {isMenuOpen && (
+                                <div className="absolute top-full right-0 mt-4 w-64 bg-white border-4 border-slate-800 rounded-2xl shadow-[6px_6px_0px_0px_#1e293b] p-3 flex flex-col gap-2 z-50 animate-fade-in-down">
+                                    <a href="#about" onClick={() => setIsMenuOpen(false)} className="text-xl font-bold text-slate-700 hover:text-blue-600 hover:bg-slate-100 p-3 rounded-xl transition-colors no-underline flex items-center gap-3">
+                                        <span>❤️</span> אודותינו
+                                    </a>
+                                    <a href="#brain-gym" onClick={() => setIsMenuOpen(false)} className="text-xl font-bold text-slate-700 hover:text-blue-600 hover:bg-slate-100 p-3 rounded-xl transition-colors no-underline flex items-center gap-3">
+                                        <span>🧠</span> חשיבות המשחקים
+                                    </a>
+                                    <a href="#footer-contact" onClick={() => setIsMenuOpen(false)} className="text-xl font-bold text-slate-700 hover:text-blue-600 hover:bg-slate-100 p-3 rounded-xl transition-colors no-underline flex items-center gap-3">
+                                        <span>✉️</span> צור קשר
+                                    </a>
+                                </div>
+                            )}
                         </div>
                     </header>
 
@@ -241,15 +291,6 @@
                             <p className="text-2xl md:text-3xl font-bold text-slate-800 bg-white inline-block px-8 py-3 rounded-full border-4 border-slate-800 shadow-[4px_4px_0px_0px_#1e293b] rotate-[-2deg]">
                                 תבחרו משחק ונתחיל 🚀
                             </p>
-                            
-                            <div className="mt-8 flex justify-center">
-                                <a 
-                                    href="#brain-gym" 
-                                    className="inline-flex items-center justify-center gap-2 bg-cyan-400 border-4 border-slate-800 rounded-2xl px-6 py-3 text-xl md:text-2xl font-black text-slate-900 shadow-[4px_4px_0px_0px_#1e293b] hover:bg-cyan-300 hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_#1e293b] active:translate-y-2 active:shadow-[0px_0px_0px_0px_#1e293b] transition-all cursor-pointer no-underline"
-                                >
-                                    למה משחקים זה חשוב? 👇
-                                </a>
-                            </div>
                         </div>
 
                         <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -281,12 +322,11 @@
                                                     <span className="text-2xl">▶️</span>
                                                 </a>
                                                 
-                                                {/* הכפתור שעבר שינוי מ-a ל-button */}
                                                 <button 
                                                     onClick={() => handleSupportClick("https://www.bitpay.co.il/app/me/1137EFAB-6B4F-D1BB-FD7E-E08571B1217EC952")}
                                                     className="coffee-button w-full text-center py-3 flex items-center justify-center gap-2 block no-underline"
                                                 >
-                                                    <span className="text-lg font-black text-slate-900">האתר עלינו, הקפה עליכם ☕️</span>
+                                                    <span className="text-lg font-black text-slate-900">תמכו באתר עם כוס קפה ☕️</span>
                                                 </button>
                                             </div>
                                         </div>
