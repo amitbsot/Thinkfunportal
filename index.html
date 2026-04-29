@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ThinkFun - משחקים ולומדים! | משחקים חינוכיים ולימוד תכנות לילדים</title>
+    <title>ThinkFun - משחקים, לומדים ויוצרים! | פורטל משחקים חינוכיים</title>
     
-    <meta name="description" content="פורטל משחקים חינוכיים לילדים המשלב למידה חווייתית, פיתוח חשיבה וסדנאות יצירה דיגיטלית. בואו ללמוד איך לבנות משחקים ואתרים בעצמכם!">
-    <meta name="keywords" content="משחקים לילדים, משחקים חינוכיים, לימוד תכנות לילדים, בניית אתרים לילדים, פיתוח משחקים, משחק זיכרון, פאזלים, חינוך מיוחד">
+    <meta name="description" content="פורטל משחקים חינוכיים לילדים. למידה חווייתית, פיתוח חשיבה וסדנאות יצירה דיגיטלית. בואו לשחק בזיכרון, פאזלים וללמוד לתכנת!">
+    <meta name="keywords" content="משחקים לילדים, משחקים חינוכיים, לימוד תכנות לילדים, בניית אתרים לילדים, פיתוח משחקים, זיכרון באנגלית">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
@@ -35,7 +35,8 @@
         .coffee-button { background-color: #facc15; border: 4px solid #1e293b; border-radius: 14px; box-shadow: 0px 4px 0px 0px #1e293b; transition: all 0.1s; cursor: pointer; font-weight: 800; }
         
         .workshop-card { background-color: #f472b6; border: 4px solid #1e293b; color: white; border-radius: 24px; box-shadow: 6px 8px 0px 0px #1e293b; }
-        
+        .benefit-pill { background: #f1f5f9; border: 2px solid #1e293b; border-radius: 12px; padding: 10px 15px; display: inline-flex; align-items: center; gap: 8px; font-weight: bold; font-size: 0.9rem; }
+
         .text-outline { color: #fde047; text-shadow: -3px -3px 0 #1e293b, 3px -3px 0 #1e293b, -3px 3px 0 #1e293b, 3px 3px 0 #1e293b, 5px 5px 0 #1e293b; }
 
         .static-seo-section { background-color: #ffffff; border-top: 8px solid #1e293b; padding: 60px 20px; color: #334155; line-height: 1.8; position: relative; z-index: 10; }
@@ -58,12 +59,35 @@
 
     <div id="root"></div>
 
+    <section class="py-12 bg-white/50 border-t-4 border-slate-800">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-4xl font-black text-center mb-10 text-slate-800">מה הילדים מרוויחים אצלנו? 🧠</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="toy-card p-6 flex flex-col items-center text-center">
+                    <div class="text-5xl mb-4">🧩</div>
+                    <h3 class="text-xl font-black mb-2">חשיבה לוגית</h3>
+                    <p class="text-slate-600 font-bold">פתרון פאזלים ומשחקי מילים עוזרים לפתח את היכולת לפרק בעיות גדולות לחלקים קטנים.</p>
+                </div>
+                <div class="toy-card p-6 flex flex-col items-center text-center">
+                    <div class="text-5xl mb-4">🌍</div>
+                    <h3 class="text-xl font-black mb-2">אנגלית חווייתית</h3>
+                    <p class="text-slate-600 font-bold">במקום לשנן מילים, הילדים פוגשים אותן תוך כדי משחק זיכרון תחרותי ומהנה.</p>
+                </div>
+                <div class="toy-card p-6 flex flex-col items-center text-center">
+                    <div class="text-5xl mb-4">🚀</div>
+                    <h3 class="text-xl font-black mb-2">ביטחון דיגיטלי</h3>
+                    <p class="text-slate-600 font-bold">אנחנו הופכים את המסך מכלי פסיבי לכלי יצירתי שמעודד סקרנות ולמידה עצמית.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="py-12 px-6">
         <div class="max-w-4xl mx-auto workshop-card p-8 text-center">
             <h2 class="text-4xl font-black mb-4">רוצים שגם הילדים שלכם יבנו כזה? 🚀</h2>
             <p class="text-xl font-bold mb-6">אנחנו מעבירים סדנאות "יוצרים דיגיטליים" בהן ילדים לומדים לקחת רעיון ולהפוך אותו למשחק או אתר אמיתי בעזרת קוד ו-AI.</p>
             <div class="flex justify-center">
-                <a href="mailto:contact@thinkfun.co.il" class="toy-button px-8 py-4 text-2xl bg-white text-pink-600 border-pink-900 shadow-[0px_6px_0px_0px_#831843] hover:bg-slate-100">צרו קשר לפרטים נוספים</a>
+                <a href="mailto:thinkfungames@gmail.com" class="toy-button px-8 py-4 text-2xl bg-white text-pink-600 border-pink-900 shadow-[0px_6px_0px_0px_#831843] hover:bg-slate-100">צרו קשר לפרטים נוספים</a>
             </div>
         </div>
     </section>
@@ -73,32 +97,18 @@
             <h2 class="block text-center mx-auto mb-12">שאלות נפוצות 💡</h2>
             
             <div class="faq-item">
-                <span class="faq-question">האם המשחקים באתר הם בחינם?</span>
-                <p>כן, כל המשחקים ב-ThinkFun פתוחים לקהל הרחב בחינם. המטרה שלנו היא לאפשר לכל ילד וילדה גישה ללמידה מהנה דרך מסכים בצורה איכותית.</p>
+                <span class="faq-question">איך אפשר להתחיל ללמוד לבנות משחקים?</span>
+                <p>הדרך הכי טובה היא להתחיל מסקרנות! אנחנו מציעים ליווי אישי שבו אנחנו מלמדים איך להשתמש בכלי בינה מלאכותית ובקוד כדי להגשים חלומות דיגיטליים.</p>
             </div>
 
             <div class="faq-item">
-                <span class="faq-question">לאילו גילאים המשחקים מתאימים?</span>
-                <p>המשחקים מותאמים בעיקר לגילאי 5 עד 12, אך הם מיועדים לכל מי שאוהב לאתגר את המחשבה, ללמוד אנגלית ולפתור פאזלים.</p>
+                <span class="faq-question">האם האתר בטוח לשימוש ילדים?</span>
+                <p>לחלוטין. האתר נבנה עם דגש על סביבה נקייה ובטוחה. הפרסומות מסוננות ככל הניתן לתכנים הולמים ואין איסוף של מידע אישי על הילדים.</p>
             </div>
 
             <div class="faq-item">
-                <span class="faq-question">איך האתר עוזר לילדים ללמוד?</span>
-                <p>המשחקים מבוססים על עקרונות פדגוגיים של זיכרון חזותי, זיהוי תבניות וחשיבה לוגית. ב"זיכרון באנגלית" הילדים נחשפים לאוצר מילים תוך כדי משחק, וב"Fuzzle" הם מפתחים תפיסה מרחבית.</p>
-            </div>
-
-            <div class="faq-item">
-                <span class="faq-question">האם אתם מציעים שיעורי תכנות?</span>
-                <p>בוודאי! אנחנו מאמינים שילדים הם לא רק "צרכני תוכן" אלא יכולים להיות "יוצרי תוכן". אנחנו מציעים ליווי וסדנאות לבניית אתרים ומשחקים בהתאמה אישית.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="static-seo-section bg-slate-50" id="about">
-        <div class="seo-container text-center">
-            <h2>הסיפור שלנו ❤️</h2>
-            <div style="background: white; padding: 35px; border-radius: 20px; border: 4px solid #e2e8f0; box-shadow: 6px 6px 0px 0px #cbd5e1; text-align: right;">
-                <p>הפרויקט הזה נולד מתוך מטרה אחת ברורה: להנגיש את העולם הדיגיטלי ואת טכנולוגיות ה-AI לכולם – בכל רמה ובכל סגנון למידה. יצרנו את המשחקים האלו יד ביד עם ילדים, כדי להבטיח שהם יהיו מכילים, ברורים ומעצימים.</p>
+                <span class="faq-question">איך "זיכרון באנגלית" עוזר לילדים?</span>
+                <p>המשחק משלב תמונה, צליל ומילה כתובה. השילוב הזה עוזר להטמיע את אוצר המילים בזיכרון לטווח ארוך בצורה הרבה יותר אפקטיבית מדף עבודה.</p>
             </div>
         </div>
     </section>
@@ -116,7 +126,23 @@
         <div class="bg-white rounded-3xl p-8 max-w-2xl w-full border-4 border-slate-800 relative text-right" dir="rtl">
             <button onclick="closeStaticModal('privacyModal')" class="absolute top-4 right-5 font-black text-2xl">✕</button>
             <h2 class="text-2xl font-black mb-4">מדיניות פרטיות 🔒</h2>
-            <p>אנחנו מעריכים את פרטיותכם. האתר משתמש בעוגיות (Cookies) של גוגל כדי להציג פרסומות מותאמות אישית ולנתח את תנועת הגולשים. איננו אוספים מידע אישי מזהה על ילדים. השימוש באתר מהווה הסכמה לתנאי השירות של Google AdSense.</p>
+            <p>האתר משתמש בעוגיות (Cookies) של גוגל כדי להציג פרסומות מותאמות אישית ולנתח את תנועת הגולשים. איננו אוספים מידע אישי מזהה על ילדים.</p>
+        </div>
+    </div>
+
+    <div id="termsModal" class="hidden fixed inset-0 z-[200] bg-slate-900/80 backdrop-blur-sm justify-center items-center p-4">
+        <div class="bg-white rounded-3xl p-8 max-w-2xl w-full border-4 border-slate-800 relative text-right" dir="rtl">
+            <button onclick="closeStaticModal('termsModal')" class="absolute top-4 right-5 font-black text-2xl">✕</button>
+            <h2 class="text-2xl font-black mb-4">תנאי שימוש 📝</h2>
+            <div class="max-h-[60vh] overflow-y-auto pr-2 text-slate-600 font-bold">
+                <p class="mb-4">ברוכים הבאים ל-ThinkFun. השימוש באתר כפוף לתנאים הבאים:</p>
+                <ul class="list-disc list-inside space-y-2">
+                    <li>המשחקים באתר ניתנים לשימוש חינמי לצרכי למידה והנאה.</li>
+                    <li>אין להעתיק או לשכפל את קוד האתר או התמונות ללא אישור בכתב.</li>
+                    <li>השימוש באתר הוא באחריות המשתמש בלבד.</li>
+                    <li>אנחנו שומרים לעצמנו את הזכות לעדכן את המשחקים והתכנים מעת לעת.</li>
+                </ul>
+            </div>
         </div>
     </div>
 
@@ -173,7 +199,7 @@
                             <h1 className="text-3xl font-black text-slate-800">Think<span className="text-blue-600">Fun</span> 🎮</h1>
                             <nav className="hidden md:flex gap-6 font-bold">
                                 <a href="#faq" className="hover:text-blue-600">שאלות נפוצות</a>
-                                <a href="#about" className="hover:text-blue-600">הסיפור שלנו</a>
+                                <a href="mailto:thinkfungames@gmail.com" className="hover:text-blue-600">צרו קשר</a>
                             </nav>
                         </div>
                     </header>
