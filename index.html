@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ThinkFun - משחקים ולומדים! | משחקים חינוכיים לילדים</title>
+    <title>ThinkFun - משחקים ולומדים! | משחקים חינוכיים ולימוד תכנות לילדים</title>
     
-    <meta name="description" content="פורטל משחקים חינוכיים לילדים. שחקו במשחקי זיכרון, פאזלים ומשחקי חברה. למידת שפות, פיתוח חשיבה מרחבית וזמן איכות למשפחה.">
-    <meta name="keywords" content="משחקים לילדים, משחקים חינוכיים, משחק זיכרון באנגלית, פאזל הזזה, התפתחות הילד, חינוך מיוחד, נגישות">
+    <meta name="description" content="פורטל משחקים חינוכיים לילדים המשלב למידה חווייתית, פיתוח חשיבה וסדנאות יצירה דיגיטלית. בואו ללמוד איך לבנות משחקים ואתרים בעצמכם!">
+    <meta name="keywords" content="משחקים לילדים, משחקים חינוכיים, לימוד תכנות לילדים, בניית אתרים לילדים, פיתוח משחקים, משחק זיכרון, פאזלים, חינוך מיוחד">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
@@ -33,12 +33,18 @@
         .toy-button:hover { background-color: #4ade80; }
         .toy-button:active { transform: translateY(6px); box-shadow: 0px 0px 0px 0px #166534; }
         .coffee-button { background-color: #facc15; border: 4px solid #1e293b; border-radius: 14px; box-shadow: 0px 4px 0px 0px #1e293b; transition: all 0.1s; cursor: pointer; font-weight: 800; }
+        
+        .workshop-card { background-color: #f472b6; border: 4px solid #1e293b; color: white; border-radius: 24px; box-shadow: 6px 8px 0px 0px #1e293b; }
+        
         .text-outline { color: #fde047; text-shadow: -3px -3px 0 #1e293b, 3px -3px 0 #1e293b, -3px 3px 0 #1e293b, 3px 3px 0 #1e293b, 5px 5px 0 #1e293b; }
 
         .static-seo-section { background-color: #ffffff; border-top: 8px solid #1e293b; padding: 60px 20px; color: #334155; line-height: 1.8; position: relative; z-index: 10; }
         .seo-container { max-width: 900px; margin: 0 auto; }
         .seo-container h2 { color: #1e293b; font-size: 2.5rem; font-weight: 900; margin-bottom: 25px; border-bottom: 4px solid #fde047; display: inline-block; }
         
+        .faq-item { text-align: right; background: #f8fafc; padding: 20px; border-radius: 15px; border: 2px solid #e2e8f0; margin-bottom: 15px; }
+        .faq-question { font-weight: 800; color: #1e293b; font-size: 1.2rem; display: block; margin-bottom: 8px; }
+
         .ad-container-side { position: fixed; top: 100px; width: 160px; height: 600px; z-index: 10; display: flex; justify-content: center; align-items: center; }
         .ad-container-left { left: 10px; }
         .ad-container-right { right: 10px; }
@@ -52,7 +58,43 @@
 
     <div id="root"></div>
 
-    <section class="static-seo-section" id="about">
+    <section class="py-12 px-6">
+        <div class="max-w-4xl mx-auto workshop-card p-8 text-center">
+            <h2 class="text-4xl font-black mb-4">רוצים שגם הילדים שלכם יבנו כזה? 🚀</h2>
+            <p class="text-xl font-bold mb-6">אנחנו מעבירים סדנאות "יוצרים דיגיטליים" בהן ילדים לומדים לקחת רעיון ולהפוך אותו למשחק או אתר אמיתי בעזרת קוד ו-AI.</p>
+            <div class="flex justify-center">
+                <a href="mailto:contact@thinkfun.co.il" class="toy-button px-8 py-4 text-2xl bg-white text-pink-600 border-pink-900 shadow-[0px_6px_0px_0px_#831843] hover:bg-slate-100">צרו קשר לפרטים נוספים</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="static-seo-section" id="faq">
+        <div class="seo-container">
+            <h2 class="block text-center mx-auto mb-12">שאלות נפוצות 💡</h2>
+            
+            <div class="faq-item">
+                <span class="faq-question">האם המשחקים באתר הם בחינם?</span>
+                <p>כן, כל המשחקים ב-ThinkFun פתוחים לקהל הרחב בחינם. המטרה שלנו היא לאפשר לכל ילד וילדה גישה ללמידה מהנה דרך מסכים בצורה איכותית.</p>
+            </div>
+
+            <div class="faq-item">
+                <span class="faq-question">לאילו גילאים המשחקים מתאימים?</span>
+                <p>המשחקים מותאמים בעיקר לגילאי 5 עד 12, אך הם מיועדים לכל מי שאוהב לאתגר את המחשבה, ללמוד אנגלית ולפתור פאזלים.</p>
+            </div>
+
+            <div class="faq-item">
+                <span class="faq-question">איך האתר עוזר לילדים ללמוד?</span>
+                <p>המשחקים מבוססים על עקרונות פדגוגיים של זיכרון חזותי, זיהוי תבניות וחשיבה לוגית. ב"זיכרון באנגלית" הילדים נחשפים לאוצר מילים תוך כדי משחק, וב"Fuzzle" הם מפתחים תפיסה מרחבית.</p>
+            </div>
+
+            <div class="faq-item">
+                <span class="faq-question">האם אתם מציעים שיעורי תכנות?</span>
+                <p>בוודאי! אנחנו מאמינים שילדים הם לא רק "צרכני תוכן" אלא יכולים להיות "יוצרי תוכן". אנחנו מציעים ליווי וסדנאות לבניית אתרים ומשחקים בהתאמה אישית.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="static-seo-section bg-slate-50" id="about">
         <div class="seo-container text-center">
             <h2>הסיפור שלנו ❤️</h2>
             <div style="background: white; padding: 35px; border-radius: 20px; border: 4px solid #e2e8f0; box-shadow: 6px 6px 0px 0px #cbd5e1; text-align: right;">
@@ -71,10 +113,10 @@
     </footer>
 
     <div id="privacyModal" class="hidden fixed inset-0 z-[200] bg-slate-900/80 backdrop-blur-sm justify-center items-center p-4">
-        <div class="bg-white rounded-3xl p-8 max-w-2xl w-full border-4 border-slate-800 relative">
+        <div class="bg-white rounded-3xl p-8 max-w-2xl w-full border-4 border-slate-800 relative text-right" dir="rtl">
             <button onclick="closeStaticModal('privacyModal')" class="absolute top-4 right-5 font-black text-2xl">✕</button>
             <h2 class="text-2xl font-black mb-4">מדיניות פרטיות 🔒</h2>
-            <p>אנחנו לא אוספים מידע אישי על ילדים. הפרסומות באתר מנוהלות על ידי צד שלישי ומסוננות ככל הניתן לתכנים הולמים.</p>
+            <p>אנחנו מעריכים את פרטיותכם. האתר משתמש בעוגיות (Cookies) של גוגל כדי להציג פרסומות מותאמות אישית ולנתח את תנועת הגולשים. איננו אוספים מידע אישי מזהה על ילדים. השימוש באתר מהווה הסכמה לתנאי השירות של Google AdSense.</p>
         </div>
     </div>
 
@@ -86,18 +128,13 @@
     <script type="text/babel" data-presets="react,env">
         const { useState, useEffect, useRef } = React;
 
-        // רכיב ה-Native Banner המעודכן
         const MonetagNativeBanner = ({ zoneId, height = "100px", className = "" }) => {
             const containerRef = useRef(null);
-
             useEffect(() => {
                 if (containerRef.current) {
                     const script = document.createElement('script');
-                    // שימוש בכתובת החדשה שקיבלת לנייטיב באנר
                     script.src = 'https://nap5k.com/tag.min.js';
                     script.dataset.zone = zoneId;
-                    
-                    // הזרקה בטוחה לתוך הקונטיינר הספציפי
                     containerRef.current.appendChild(script);
                 }
             }, [zoneId]);
@@ -108,7 +145,6 @@
                     className={`flex justify-center items-center bg-white/50 rounded-xl overflow-hidden border-2 border-dashed border-slate-300 ${className}`} 
                     style={{ width: "100%", minHeight: height }}
                 >
-                    {/* המודעה תופיע כאן */}
                 </div>
             );
         };
@@ -125,7 +161,6 @@
             return (
                 <div className="min-h-screen flex flex-col">
                     
-                    {/* באנרים בצדדים - Native בלבד (לא משתלט על קליקים) */}
                     <div className="ad-container-side ad-container-right">
                         <MonetagNativeBanner zoneId="10882129" width="160px" height="600px" />
                     </div>
@@ -134,8 +169,12 @@
                     </div>
 
                     <header className="bg-yellow-400 border-b-4 border-slate-800 py-4 px-6 sticky top-0 z-50 shadow-md">
-                        <div className="max-w-7xl mx-auto">
+                        <div className="max-w-7xl mx-auto flex justify-between items-center">
                             <h1 className="text-3xl font-black text-slate-800">Think<span className="text-blue-600">Fun</span> 🎮</h1>
+                            <nav className="hidden md:flex gap-6 font-bold">
+                                <a href="#faq" className="hover:text-blue-600">שאלות נפוצות</a>
+                                <a href="#about" className="hover:text-blue-600">הסיפור שלנו</a>
+                            </nav>
                         </div>
                     </header>
 
@@ -153,7 +192,7 @@
                                             {game.badge}
                                         </div>
                                         <div className="h-48 bg-blue-50 overflow-hidden border-b-4 border-slate-800 rounded-t-2xl">
-                                            <img src={game.imageUrl} className="w-full h-full object-cover group-hover:scale-110 transition-transform" />
+                                            <img src={game.imageUrl} alt={game.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform" />
                                         </div>
                                         <div className="p-6 flex-1 flex flex-col bg-white rounded-b-2xl">
                                             <h3 className="text-2xl font-black mb-2 text-slate-800">{game.title}</h3>
@@ -164,15 +203,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
-                                    {/* באנר נייטיב מתחת למשחק */}
                                     <MonetagNativeBanner zoneId="10882129" height="100px" />
                                 </div>
                             ))}
                         </div>
                     </main>
 
-                    {/* מודאל אבטחת הורים */}
                     {supportModal.isOpen && (
                         <div className="fixed inset-0 z-[300] bg-slate-900/90 flex justify-center items-center p-4 backdrop-blur-sm">
                             <div className="bg-white p-8 rounded-3xl border-4 border-slate-800 max-w-sm w-full text-center shadow-2xl">
