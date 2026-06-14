@@ -3,15 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ThinkFun - משחקים, לומדים ויוצרים! | פורטל משחקים חינוכיים</title>
+    <title>ThinkFun - משחקים, לומדים ויוצרים! | פורטל משחקים חינוכיים לילדים</title>
     <meta name="google-adsense-account" content="ca-pub-7832188543711021">
-    <meta name="description" content="פורטל משחקים חינוכיים לילדים. למידה חווייתית, פיתוח חשיבה וסדנאות יצירה דיגיטלית. בואו לשחק בזיכרון, פאזלים וללמוד לתכנת!">
-    <meta name="keywords" content="משחקים לילדים, משחקים חינוכיים, לימוד תכנות לילדים, בניית אתרים לילדים, פיתוח משחקים, זיכרון באנגלית">
+    <meta name="description" content="פורטל משחקים חינוכיים לילדים. למידה חווייתית, פיתוח חשיבה, למידת אנגלית, וסדנאות יצירה דיגיטלית. בואו לשחק בזיכרון, פאזלים וללמוד לתכנת בעזרת בינה מלאכותית!">
+    <meta name="keywords" content="משחקים לילדים, משחקים חינוכיים, לימוד תכנות לילדים, בניית אתרים לילדים, פיתוח משחקים, זיכרון באנגלית, חשיבה לוגית לילדים">
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.3/babel.min.js"></script>
     <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;800;900&display=swap" rel="stylesheet">
@@ -35,64 +32,165 @@
         .coffee-button { background-color: #facc15; border: 4px solid #1e293b; border-radius: 14px; box-shadow: 0px 4px 0px 0px #1e293b; transition: all 0.1s; cursor: pointer; font-weight: 800; }
         
         .workshop-card { background-color: #f472b6; border: 4px solid #1e293b; color: white; border-radius: 24px; box-shadow: 6px 8px 0px 0px #1e293b; }
-        .benefit-pill { background: #f1f5f9; border: 2px solid #1e293b; border-radius: 12px; padding: 10px 15px; display: inline-flex; align-items: center; gap: 8px; font-weight: bold; font-size: 0.9rem; }
-
+        
         .text-outline { color: #fde047; text-shadow: -3px -3px 0 #1e293b, 3px -3px 0 #1e293b, -3px 3px 0 #1e293b, 3px 3px 0 #1e293b, 5px 5px 0 #1e293b; }
 
         .static-seo-section { background-color: #ffffff; border-top: 8px solid #1e293b; padding: 60px 20px; color: #334155; line-height: 1.8; position: relative; z-index: 10; }
         .seo-container { max-width: 900px; margin: 0 auto; }
         .seo-container h2 { color: #1e293b; font-size: 2.5rem; font-weight: 900; margin-bottom: 25px; border-bottom: 4px solid #fde047; display: inline-block; }
         
-        .faq-item { text-align: right; background: #f8fafc; padding: 20px; border-radius: 15px; border: 2px solid #e2e8f0; margin-bottom: 15px; }
-        .faq-question { font-weight: 800; color: #1e293b; font-size: 1.2rem; display: block; margin-bottom: 8px; }
+        .faq-item { text-align: right; background: #f8fafc; padding: 25px; border-radius: 15px; border: 2px solid #e2e8f0; margin-bottom: 20px; transition: all 0.2s ease; }
+        .faq-item:hover { border-color: #38bdf8; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+        .faq-question { font-weight: 800; color: #1e293b; font-size: 1.3rem; display: block; margin-bottom: 12px; }
 
         .ad-container-side { position: fixed; top: 100px; width: 160px; height: 600px; z-index: 10; display: flex; justify-content: center; align-items: center; }
         .ad-container-left { left: 10px; }
         .ad-container-right { right: 10px; }
         @media (max-width: 1280px) { .ad-container-side { display: none !important; } }
+        
+        .ad-placeholder { background-color: rgba(255,255,255,0.4); border: 2px dashed #cbd5e1; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
 
         .legal-footer { background-color: #1e293b; color: #94a3b8; padding: 40px 20px; text-align: center; }
-        .legal-footer a { color: #fde047; cursor: pointer; font-weight: bold; margin: 0 15px; }
+        .legal-footer a { color: #fde047; cursor: pointer; font-weight: bold; margin: 0 15px; transition: color 0.2s; }
+        .legal-footer a:hover { color: #fff; }
     </style>
 </head>
 <body class="text-slate-800 antialiased">
 
-    <div id="root"></div>
+    <div class="ad-container-side ad-container-right">
+        <div class="ad-placeholder w-[160px] h-[600px]">
+            </div>
+    </div>
+    <div class="ad-container-side ad-container-left">
+        <div class="ad-placeholder w-[160px] h-[600px]">
+            </div>
+    </div>
 
-    <section class="py-12 bg-white/50 border-t-4 border-slate-800">
+    <header class="bg-yellow-400 border-b-4 border-slate-800 py-4 px-6 sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-black text-slate-800">Think<span class="text-blue-600">Fun</span> 🎮</h1>
+            <nav class="hidden md:flex gap-6 font-bold">
+                <a href="#games" class="hover:text-blue-600 transition-colors">משחקים</a>
+                <a href="#benefits" class="hover:text-blue-600 transition-colors">הערך שלנו</a>
+                <a href="#about" class="hover:text-blue-600 transition-colors">הסיפור שלנו</a>
+                <a href="#faq" class="hover:text-blue-600 transition-colors">שאלות נפוצות</a>
+                <a href="mailto:thinkfungames@gmail.com" class="hover:text-blue-600 transition-colors">צרו קשר</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="games" class="max-w-6xl mx-auto w-full px-6 py-12">
+        <div class="text-center mb-16">
+            <h2 class="text-6xl md:text-8xl font-black text-outline mb-6">בואו לשחק!</h2>
+            <p class="text-xl font-bold bg-white inline-block px-6 py-2 rounded-full border-4 border-slate-800 shadow-[4px_4px_0px_0px_#1e293b]">תבחרו משחק ונתחיל ללמוד בכיף 🚀</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="flex flex-col gap-6">
+                <div class="toy-card flex flex-col group relative">
+                    <div class="absolute -top-3 -right-3 z-20 px-4 py-1 rounded-xl font-black border-4 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] bg-yellow-400 border-yellow-600">
+                        🗣️ שפות
+                    </div>
+                    <div class="h-48 bg-blue-50 overflow-hidden border-b-4 border-slate-800 rounded-t-2xl">
+                        <img src="IMG_8043.jpeg" alt="זיכרון באנגלית" class="w-full h-full object-cover group-hover:scale-110 transition-transform" onerror="this.style.display='none'" />
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col bg-white rounded-b-2xl">
+                        <h3 class="text-2xl font-black mb-2 text-slate-800">זיכרון באנגלית</h3>
+                        <p class="text-slate-600 font-bold mb-6 flex-1">הפכו את הקלפים, מצאו את הזוגות ולמדו מילים חדשות באנגלית דרך חוויה תחרותית המעשירה את אוצר המילים ומשפרת קשב וריכוז.</p>
+                        <div class="flex flex-col gap-3">
+                            <button onclick="openGame('https://funmemorygame.vercel.app/', 'זיכרון באנגלית', false)" class="toy-button w-full py-4 text-xl">שחק עכשיו!</button>
+                            <button onclick="openSupportModal('https://bitpay...')" class="coffee-button w-full py-2">תמכו עם קפה ☕</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="ad-placeholder w-full min-h-[100px]"></div>
+            </div>
+
+            <div class="flex flex-col gap-6">
+                <div class="toy-card flex flex-col group relative">
+                    <div class="absolute -top-3 -right-3 z-20 px-4 py-1 rounded-xl font-black border-4 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] bg-pink-400 border-pink-600">
+                        🧩 חשיבה
+                    </div>
+                    <div class="h-48 bg-blue-50 overflow-hidden border-b-4 border-slate-800 rounded-t-2xl">
+                        <img src="IMG_8045.jpeg" alt="Fuzzle - פאזל הזזה" class="w-full h-full object-cover group-hover:scale-110 transition-transform" onerror="this.style.display='none'" />
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col bg-white rounded-b-2xl">
+                        <h3 class="text-2xl font-black mb-2 text-slate-800">Fuzzle - פאזל הזזה</h3>
+                        <p class="text-slate-600 font-bold mb-6 flex-1">הזיזו את החלקים למקום הנכון והשלימו את התמונה! משחק המפתח חשיבה מרחבית, תכנון אסטרטגי ולוגיקה לילדים ולנוער.</p>
+                        <div class="flex flex-col gap-3">
+                            <button onclick="openGame('https://fuzzlefungames.vercel.app/', 'Fuzzle - פאזל הזזה', false)" class="toy-button w-full py-4 text-xl">שחק עכשיו!</button>
+                            <button onclick="openSupportModal('https://bitpay...')" class="coffee-button w-full py-2">תמכו עם קפה ☕</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="ad-placeholder w-full min-h-[100px]"></div>
+            </div>
+
+            <div class="flex flex-col gap-6">
+                <div class="toy-card flex flex-col group relative">
+                    <div class="absolute -top-3 -right-3 z-20 px-4 py-1 rounded-xl font-black border-4 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] bg-purple-400 border-purple-600">
+                        בקרוב
+                    </div>
+                    <div class="h-48 bg-blue-50 overflow-hidden border-b-4 border-slate-800 rounded-t-2xl">
+                        <img src="IMG_8044.jpeg" alt="Talio - משחק מילים" class="w-full h-full object-cover group-hover:scale-110 transition-transform" onerror="this.style.display='none'" />
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col bg-white rounded-b-2xl">
+                        <h3 class="text-2xl font-black mb-2 text-slate-800">Talio - משחק מילים</h3>
+                        <p class="text-slate-600 font-bold mb-6 flex-1">הצחיקו את כולם! נסו לתאר את המילה בלי להשתמש במילים האסורות. משחק חברה שמתרגל שליפה מהירה מהזיכרון ועושר שפתי.</p>
+                        <div class="flex flex-col gap-3">
+                            <button onclick="openGame('', 'Talio - משחק מילים', true)" class="toy-button w-full py-4 text-xl bg-purple-600 border-purple-900 shadow-[0px_6px_0px_0px_#4c1d95] hover:bg-purple-500">קראו עוד</button>
+                            <button onclick="openSupportModal('https://bitpay...')" class="coffee-button w-full py-2">תמכו עם קפה ☕</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="ad-placeholder w-full min-h-[100px]"></div>
+            </div>
+        </div>
+    </main>
+
+    <section id="benefits" class="py-16 bg-white/70 border-t-4 border-slate-800">
         <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-4xl font-black text-center mb-10 text-slate-800">מה הילדים מרוויחים אצלנו? 🧠</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="toy-card p-6 flex flex-col items-center text-center">
-                    <div class="text-5xl mb-4">🧩</div>
-                    <h3 class="text-xl font-black mb-2">חשיבה לוגית</h3>
-                    <p class="text-slate-600 font-bold">פתרון פאזלים ומשחקי מילים עוזרים לפתח את היכולת לפרק בעיות גדולות לחלקים קטנים.</p>
+            <h2 class="text-4xl md:text-5xl font-black text-center mb-12 text-slate-800">מה הילדים מרוויחים אצלנו? 🧠</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="toy-card p-8 flex flex-col items-center text-center">
+                    <div class="text-6xl mb-6">🧩</div>
+                    <h3 class="text-2xl font-black mb-4">חשיבה לוגית ואסטרטגית</h3>
+                    <p class="text-slate-600 font-bold leading-relaxed">
+                        פתרון פאזלים ומשחקי מילים עוזרים לפתח את היכולת לפרק בעיות מורכבות וגדולות לחלקים קטנים וברורים. ילדים לומדים לתכנן כמה צעדים קדימה, לזהות דפוסים ולהסיק מסקנות באופן עצמאי – מיומנויות קריטיות לעולם המדעים והתכנות.
+                    </p>
                 </div>
-                <div class="toy-card p-6 flex flex-col items-center text-center">
-                    <div class="text-5xl mb-4">🌍</div>
-                    <h3 class="text-xl font-black mb-2">אוצר מילים</h3>
-                    <p class="text-slate-600 font-bold">במקום לשנן מילים, הילדים פוגשים אותן תוך כדי משחק זיכרון תחרותי ומהנה.</p>
+                <div class="toy-card p-8 flex flex-col items-center text-center">
+                    <div class="text-6xl mb-6">🌍</div>
+                    <h3 class="text-2xl font-black mb-4">הרחבת אוצר מילים</h3>
+                    <p class="text-slate-600 font-bold leading-relaxed">
+                        במקום לשנן מילים מתוך מחברת או רשימות משעממות, הילדים פוגשים את המושגים החדשים תוך כדי משחק זיכרון תחרותי, ויזואלי ומהנה. המוח מקשר את המילה לרגש ולחוויה חיובית, מה שמבטיח הטמעה עמוקה יותר לטווח הארוך.
+                    </p>
                 </div>
-                <div class="toy-card p-6 flex flex-col items-center text-center">
-                    <div class="text-5xl mb-4">🚀</div>
-                    <h3 class="text-xl font-black mb-2">ביטחון דיגיטלי</h3>
-                    <p class="text-slate-600 font-bold">אנחנו הופכים את המסך מכלי פסיבי לכלי יצירתי שמעודד סקרנות ולמידה עצמית.</p>
+                <div class="toy-card p-8 flex flex-col items-center text-center">
+                    <div class="text-6xl mb-6">🚀</div>
+                    <h3 class="text-2xl font-black mb-4">ביטחון עצמי בדיגיטל</h3>
+                    <p class="text-slate-600 font-bold leading-relaxed">
+                        אנחנו הופכים את המסך מכלי פסיבי (צפייה בסרטונים) לכלי אקטיבי ויצירתי שמעודד סקרנות, קבלת החלטות ולמידה עצמית. הצלחה במשחקים מפתחת תחושת מסוגלות ומוכיחה לילדים שהם יכולים להתמודד עם אתגרים טכנולוגיים.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="static-seo-section bg-blue-50" id="educational-value">
+    <section class="static-seo-section bg-blue-50">
         <div class="seo-container text-right">
             <h2>למה משחקים חינוכיים הם המפתח ללמידה בעולם הדיגיטלי? 📚</h2>
-            <p class="mb-4 text-lg text-slate-700 font-bold">
-                בעידן שבו מסכים הם חלק בלתי נפרד מחיינו, האתגר הגדול ביותר של הורים ואנשי חינוך הוא לא למנוע את זמן המסך, אלא להפוך אותו לאיכותי, פעיל ומעשיר. ב-ThinkFun אנו מאמינים שמשחקים אינטראקטיביים הם הפלטפורמה המושלמת ללמידה משמעותית המשלבת הנאה ותוצאות.
+            <p class="mb-5 text-xl text-slate-700 font-black">
+                בעידן שבו מסכים הם חלק בלתי נפרד מחיינו, האתגר הגדול ביותר של הורים ואנשי חינוך הוא לא למנוע את זמן המסך לחלוטין, אלא להפוך אותו לזמן איכותי, פעיל ומעשיר. 
             </p>
-            <p class="mb-4 text-lg text-slate-700">
-                <strong>פיתוח מיומנויות קוגניטיביות:</strong> כאשר ילדים משחקים בפאזלים או משחקי זיכרון, הם אינם רק מעבירים את הזמן. הם מפתחים חשיבה מרחבית, זיכרון לטווח קצר ויכולת פתרון בעיות (Problem Solving). בניגוד לצפייה פסיבית בסרטונים, משחק דורש מהמוח לפעול, לקבל החלטות ולהתמודד עם אתגרים בזמן אמת.
+            <p class="mb-5 text-lg text-slate-700 leading-relaxed">
+                ב-ThinkFun אנו מאמינים שמשחקים אינטראקטיביים הם הפלטפורמה המושלמת ללמידה משמעותית המשלבת הנאה ותוצאות. המעבר מלמידה מסורתית ללמידה מבוססת משחק (Game-Based Learning) מוכח מחקרית כמשפר הישגים ומוטיבציה.
             </p>
-            <p class="mb-4 text-lg text-slate-700">
-                <strong>רכישת שפות באופן טבעי:</strong> משחקי שפה בנויים על עקרון של "למידה אגבית" (Incidental Learning). הילד ממוקד במטרה של הניצחון במשחק, אך תוך כדי התהליך המוח שלו קולט ומאחסן מילים חדשות. זהו מנגנון טבעי ויעיל הרבה יותר משינון רשימות מילים מספר לימוד מסורתי. המערכת שלנו מעודדת חזרה על חומר בצורה מהנה שלא מרגישה כמו מטלה בית-ספרית.
+            <p class="mb-5 text-lg text-slate-700 leading-relaxed">
+                <strong>פיתוח מיומנויות קוגניטיביות בזמן אמת:</strong> כאשר ילדים משחקים בפאזלים, במבוכים או במשחקי זיכרון, הם אינם רק "מעבירים את הזמן". הם מאמנים את מיומנויות היסוד שלהם. הם מפתחים חשיבה מרחבית שחיונית להבנת מתמטיקה, זיכרון פעיל (Working Memory), ויכולת פתרון בעיות גמישה. בניגוד לצפייה פסיבית במסך, משחק דורש מהמוח לפעול אקטיבית, לשקול אפשרויות ולהתמודד עם ניסוי וטעייה תוך קבלת משוב מיידי.
+            </p>
+            <p class="mb-5 text-lg text-slate-700 leading-relaxed">
+                <strong>רכישת שפות באופן טבעי (Incidental Learning):</strong> לימוד שפה שנייה בגיל צעיר הוא משימה חשובה. משחקי שפה באתר שלנו בנויים על עקרון של "למידה אגבית". הילד ממוקד במטרה של הניצחון במשחק - חשיפת הקלפים הנכונים או פתרון החידה - אך תוך כדי התהליך התחרותי, המוח שלו קולט באופן לא מודע ומאחסן תבניות לשוניות ומילים חדשות. זהו מנגנון טבעי ויעיל הרבה יותר, המאפשר לילדים לחזור על החומר פעמים רבות מתוך רצון פנימי ולא מתוך חובה.
             </p>
         </div>
     </section>
@@ -100,242 +198,220 @@
     <section class="static-seo-section bg-slate-50" id="about">
         <div class="seo-container text-center">
             <h2>הסיפור שלנו: מחינוך מיוחד ליצירה טכנולוגית ❤️</h2>
-            <div style="background: white; padding: 40px; border-radius: 20px; border: 4px solid #1e293b; box-shadow: 8px 8px 0px 0px #cbd5e1; text-align: right;">
-                <p class="text-xl font-black text-blue-600 mb-4">פרויקט ThinkFun לא נולד בעוד משרד הייטק, אלא מתוך חזון אמיתי ומרגש – יוזמה משותפת עם תלמידי החינוך המיוחד.</p>
-                
-                <p class="font-bold text-slate-700 mb-4">
-                    המטרה שלנו הייתה ברורה: להוכיח שהעולם הדיגיטלי וטכנולוגיות הבינה המלאכותית (AI) שייכים לכולם, בכל קצב ובכל סגנון למידה. עבדנו יד ביד עם התלמידים, שהיו שותפים מלאים בתהליך האפיון, החשיבה והעיצוב של המשחקים החינוכיים שאתם רואים כאן. 
+            <div style="background: white; padding: 50px; border-radius: 20px; border: 4px solid #1e293b; box-shadow: 8px 8px 0px 0px #cbd5e1; text-align: right;">
+                <p class="text-2xl font-black text-blue-600 mb-6 border-b-2 border-blue-100 pb-4">
+                    פרויקט ThinkFun לא נולד בעוד משרד הייטק או ישיבת דירקטוריון, אלא מתוך חזון אמיתי ומרגש מהשטח – יוזמה משותפת שנולדה בכיתות החינוך המיוחד.
                 </p>
                 
-                <p class="text-slate-600 font-medium">
-                    יחד, יצרנו סביבת למידה חווייתית, נגישה ומכילה. הפרויקט הזה נועד להעצים ילדים ולהראות להם שניתן להפוך כל נושא לימוד למשחק חווייתי, כל ילד וילדה יכולים להפוך מצרכנים פסיביים של מסכים – ליוצרים דיגיטליים פעילים, עצמאיים ובעלי ביטחון עצמי גבוה.
+                <p class="text-lg font-bold text-slate-700 mb-5 leading-relaxed">
+                    המטרה שלנו מהיום הראשון הייתה ברורה ושאפתנית: להוכיח שהעולם הדיגיטלי החדש, הכולל תכנות וטכנולוגיות של בינה מלאכותית (AI), שייך לכולם. ללא יוצא מן הכלל, בכל קצב למידה, ובכל סגנון חשיבה. הדרך לשם עברה דרך עבודה צמודה ויד ביד עם התלמידים עצמם, שלא היו רק "נסיינים", אלא היו שותפים מלאים בתהליך האפיון, החשיבה והעיצוב של המשחקים החינוכיים שאתם רואים היום באתר.
+                </p>
+                
+                <p class="text-lg text-slate-600 font-medium mb-5 leading-relaxed">
+                    התהליך הזה הוכיח לנו שכאשר נותנים לילדים את הכלים הנכונים ואת התמיכה הראויה, השמיים הם הגבול. התלמידים למדו לנסח פקודות (Prompts), לעצב גרפיקות למשחקים, ולהבין את הלוגיקה שמאחורי הקוד.
+                </p>
+
+                <p class="text-lg text-slate-600 font-medium leading-relaxed">
+                    יחד, יצרנו סביבת למידה חווייתית, נגישה ומכילה. הפרויקט הזה נועד להעצים ילדים ולהראות להם שניתן להפוך כל נושא לימוד – משעמם ככל שייראה בהתחלה – למשחק חווייתי ומרתק. החזון שלנו הוא שכל ילד וילדה יכולים להפוך מצרכנים פסיביים של מסכים – ליוצרים דיגיטליים פעילים, עצמאיים, סקרנים ובעלי ביטחון עצמי גבוה שישרת אותם גם מחוץ לעולם הדיגיטלי.
                 </p>
             </div>
         </div>
     </section>
 
-    <section class="py-12 px-6">
-        <div class="max-w-4xl mx-auto workshop-card p-8 text-center">
-            <h2 class="text-4xl font-black mb-4">רוצים שגם הילדים שלכם יבנו משחק בעצמם? 🚀</h2>
-            <p class="text-xl font-bold mb-6">אנחנו מעבירים סדנאות "יוצרים דיגיטליים" בהן ילדים לומדים לקחת רעיון ולהפוך אותו למשחק או אתר אמיתי בעזרת קוד ו-AI.</p>
+    <section class="py-16 px-6 bg-slate-800">
+        <div class="max-w-4xl mx-auto workshop-card p-10 text-center">
+            <h2 class="text-4xl font-black mb-6 leading-tight">רוצים שגם הילדים שלכם יבנו משחק מחשב בעצמם? 🚀</h2>
+            <p class="text-xl font-bold mb-8 opacity-90 leading-relaxed">
+                המסכים לא הולכים לשום מקום, אז בואו ננצל אותם לטובה! אנחנו מעבירים סדנאות "יוצרים דיגיטליים" ייחודיות בהן ילדים ובני נוער לומדים לקחת רעיון מהדמיון ולהפוך אותו למשחק או אתר אמיתי ברשת, כל זאת בעזרת כלי בינה מלאכותית (AI) מותאמים ולימוד עקרונות קוד בסיסיים.
+            </p>
             <div class="flex justify-center">
-                <a href="mailto:thinkfungames@gmail.com" class="toy-button px-8 py-4 text-2xl bg-white text-pink-600 border-pink-900 shadow-[0px_6px_0px_0px_#831843] hover:bg-slate-100">צרו קשר לפרטים נוספים</a>
+                <a href="mailto:thinkfungames@gmail.com" class="toy-button px-10 py-5 text-2xl bg-white text-pink-600 border-pink-900 shadow-[0px_6px_0px_0px_#831843] hover:bg-slate-100 hover:text-pink-700">דברו איתנו לפרטים נוספים</a>
             </div>
         </div>
     </section>
 
-    <section class="static-seo-section" id="faq">
+    <section class="static-seo-section bg-white" id="faq">
         <div class="seo-container">
-            <h2 class="block text-center mx-auto mb-12">שאלות נפוצות 💡</h2>
+            <h2 class="block text-center mx-auto mb-12">שאלות נפוצות (FAQ) 💡</h2>
             
             <div class="faq-item">
-                <span class="faq-question">איך אפשר להתחיל ללמוד לבנות משחקים?</span>
-                <p>הדרך הכי טובה היא להתחיל מסקרנות! אנחנו מציעים ליווי אישי ומותאם רמה שבו אנחנו מלמדים איך להשתמש בכלי בינה מלאכותית ובקוד כדי להגשים חלומות דיגיטליים.</p>
+                <span class="faq-question">איך אפשר להתחיל ללמוד לבנות משחקים באתר?</span>
+                <p class="text-slate-600 text-lg leading-relaxed">הדרך הכי טובה היא להתחיל מסקרנות! אנחנו מציעים ליווי אישי, חוגים וסדנאות המותאמות לרמה של הילד. במהלך המפגשים אנחנו חושפים את הילדים לכלים ידידותיים, מלמדים אותם איך לדבר עם מנועי בינה מלאכותית (AI Prompting), ומראים להם איך מחברים קוד ולוגיקה לכדי משחק עובד שהם יכולים לשתף עם חברים ומשפחה.</p>
             </div>
 
             <div class="faq-item">
-                <span class="faq-question">האם האתר בטוח לשימוש ילדים?</span>
-                <p>לחלוטין. האתר נבנה עם דגש על סביבה נקייה ובטוחה. הפרסומות המוטמעות מסוננות לתכנים הולמים ואין איסוף של מידע אישי מזהה על הילדים לפי תקני הפרטיות המחמירים.</p>
+                <span class="faq-question">האם האתר בטוח לשימוש ילדים ובני נוער?</span>
+                <p class="text-slate-600 text-lg leading-relaxed">לחלוטין כן. בטיחות ברשת היא ערך עליון עבורנו. האתר נבנה עם דגש על סביבה נקייה, ברורה ובטוחה. רשת הפרסום שמוטמעת באתר מסוננת במיוחד לתכנים הולמים לכל המשפחה. כמו כן, איננו מבקשים הרשמה, איננו אוספים מידע אישי מזהה (PII) על הילדים, והמערכת פועלת בהתאם לתקני הפרטיות המחמירים.</p>
             </div>
 
             <div class="faq-item">
-                <span class="faq-question">איך "משחק הזיכרון" עוזר בלימוד אנגלית?</span>
-                <p>המשחק משלב תמונה, צליל ומילה כתובה. השילוב הזה עוזר להטמיע את אוצר המילים בזיכרון לטווח ארוך בצורה הרבה יותר אפקטיבית מדף עבודה רגיל.</p>
+                <span class="faq-question">איך בדיוק "משחק הזיכרון" שלכם עוזר בלימוד שפה האנגלית?</span>
+                <p class="text-slate-600 text-lg leading-relaxed">משחקי הזיכרון שלנו מבוססים על למידה רב-חושית. המשחק משלב תמונה ברורה, צליל מדויק של הוגה המילה, והמילה הכתובה באותיות. השילוב המשולש הזה עוזר למוח להטמיע את אוצר המילים ולקודד אותו בזיכרון לטווח ארוך בצורה הרבה יותר אפקטיבית מדף עבודה רגיל. בנוסף, אלמנט הזמן והתחרות גורם לילד לרצות לשחק שוב ושוב.</p>
+            </div>
+
+            <div class="faq-item">
+                <span class="faq-question">לאילו גילאים המשחקים והסדנאות מתאימים?</span>
+                <p class="text-slate-600 text-lg leading-relaxed">המשחקים הפתוחים באתר (כמו פאזלים ומשחקי זיכרון בסיסיים) מתאימים לילדים החל מגיל הגן (5+) ועד לבית הספר היסודי. הסדנאות שלנו ליצירה דיגיטלית ופיתוח משחקים בעזרת AI מתאימות לילדים ולבני נוער החל מגיל 9, שכבר שולטים בקריאה וכתיבה ומוכנים לצלול לעולם הטכנולוגי.</p>
             </div>
         </div>
     </section>
 
     <footer class="legal-footer" id="footer-contact">
-        <div class="flex flex-wrap justify-center gap-4 mb-4">
+        <div class="flex flex-wrap justify-center gap-4 mb-6">
             <a onclick="openStaticModal('privacyModal')">מדיניות פרטיות</a> 
             <span>|</span>
             <a onclick="openStaticModal('termsModal')">תנאי שימוש</a>
+            <span>|</span>
+            <a href="mailto:thinkfungames@gmail.com">צור קשר</a>
         </div>
-        <p>&copy; 2026 ThinkFun Games. כל הזכויות שמורות.</p>
+        <p class="text-sm">&copy; 2026 ThinkFun Games. כל הזכויות שמורות. למידה, יצירה ומשחקים חינוכיים.</p>
     </footer>
 
     <div id="privacyModal" class="hidden fixed inset-0 z-[200] bg-slate-900/80 backdrop-blur-sm justify-center items-center p-4">
         <div class="bg-white rounded-3xl p-8 max-w-2xl w-full border-4 border-slate-800 relative text-right" dir="rtl">
-            <button onclick="closeStaticModal('privacyModal')" class="absolute top-4 right-5 font-black text-2xl">✕</button>
-            <h2 class="text-2xl font-black mb-4">מדיניות פרטיות 🔒</h2>
-            <p>האתר משתמש בעוגיות (Cookies) כדי להציג פרסומות מותאמות ולנתח את תנועת הגולשים. איננו אוספים מידע אישי מזהה על ילדים בהתאם לכללי COPPA ו-GDPR.</p>
+            <button onclick="closeStaticModal('privacyModal')" class="absolute top-4 right-5 font-black text-2xl text-slate-500 hover:text-slate-800">✕</button>
+            <h2 class="text-3xl font-black mb-6 text-slate-800">מדיניות פרטיות 🔒</h2>
+            <div class="text-slate-600 font-medium leading-relaxed">
+                <p class="mb-4">אנו ב-ThinkFun רואים חשיבות עליונה בשמירה על פרטיות הגולשים, ובפרט ילדים.</p>
+                <p class="mb-4">האתר עשוי להשתמש בעוגיות (Cookies) של צד שלישי (כגון גוגל) כדי להציג פרסומות מותאמות או לנתח את התנועה הכללית באתר למטרות סטטיסטיות. איננו דורשים יצירת חשבון ואיננו אוספים או שומרים מידע אישי מזהה (שם, כתובת, טלפון וכו') על קטינים בשום שלב, בהתאם לחוקי הפרטיות הבינלאומיים (COPPA / GDPR).</p>
+                <p>לכל שאלה בנושא פרטיות, ניתן לפנות אלינו לכתובת המייל המופיעה באתר.</p>
+            </div>
         </div>
     </div>
 
     <div id="termsModal" class="hidden fixed inset-0 z-[200] bg-slate-900/80 backdrop-blur-sm justify-center items-center p-4">
         <div class="bg-white rounded-3xl p-8 max-w-2xl w-full border-4 border-slate-800 relative text-right" dir="rtl">
-            <button onclick="closeStaticModal('termsModal')" class="absolute top-4 right-5 font-black text-2xl">✕</button>
-            <h2 class="text-2xl font-black mb-4">תנאי שימוש 📝</h2>
-            <div class="max-h-[60vh] overflow-y-auto pr-2 text-slate-600 font-bold">
-                <p class="mb-4">ברוכים הבאים ל-ThinkFun. השימוש באתר כפוף לתנאים הבאים:</p>
-                <ul class="list-disc list-inside space-y-2">
-                    <li>המשחקים באתר ניתנים לשימוש חינמי לצרכי למידה והנאה.</li>
-                    <li>אין להעתיק או לשכפל את קוד האתר או התמונות ללא אישור בכתב.</li>
-                    <li>השימוש באתר הוא באחריות המשתמש בלבד.</li>
-                    <li>אנחנו שומרים לעצמנו את הזכות לעדכן את המשחקים והתכנים מעת לעת.</li>
+            <button onclick="closeStaticModal('termsModal')" class="absolute top-4 right-5 font-black text-2xl text-slate-500 hover:text-slate-800">✕</button>
+            <h2 class="text-3xl font-black mb-6 text-slate-800">תנאי שימוש 📝</h2>
+            <div class="max-h-[60vh] overflow-y-auto pr-2 text-slate-600 font-medium leading-relaxed">
+                <p class="mb-4">ברוכים הבאים לפורטל המשחקים ThinkFun. גלישה ושימוש באתר מהווים את הסכמתך לתנאים הבאים:</p>
+                <ul class="list-disc list-inside space-y-3 font-bold text-slate-700">
+                    <li>המשחקים והתכנים באתר ניתנים לשימוש חופשי וחינמי לצרכי למידה, העשרה והנאה אישית בלבד.</li>
+                    <li>זכויות היוצרים: אין להעתיק, לשכפל, להפיץ או לעשות שימוש מסחרי בקוד האתר, בגרפיקה, בתמונות או בטקסטים ללא אישור מפורש בכתב ממפעילי האתר.</li>
+                    <li>השימוש באתר ובמשחקים הוא באחריות המשתמש בלבד. אנו עושים מאמץ להבטיח את תקינות המערכות, אך איננו מתחייבים לפעולה חלקה וללא תקלות בכל עת.</li>
+                    <li>האתר מציג פרסומות המנוהלות על ידי רשתות חיצוניות (כגון Google AdSense). אנו משתדלים לסנן את התכנים, אך איננו אחראים לתוכן הפרסומות עצמן.</li>
+                    <li>הנהלת האתר שומרת לעצמה את הזכות לעדכן, לשנות או להסיר משחקים ותכנים מעת לעת וללא הודעה מוקדמת.</li>
                 </ul>
             </div>
         </div>
     </div>
 
+    <div id="supportModal" class="hidden fixed inset-0 z-[300] bg-slate-900/90 justify-center items-center p-4 backdrop-blur-sm">
+        <div class="bg-white p-8 rounded-3xl border-4 border-slate-800 max-w-sm w-full text-center shadow-2xl relative">
+            <h3 class="text-2xl font-black mb-4">אזור הורים 🛡️</h3>
+            <p class="mb-4 font-bold text-slate-600">כדי להמשיך, אנא פתרו את התרגיל:</p>
+            <p class="mb-4 text-xl font-black text-blue-600" dir="ltr">6 × 3 = ?</p>
+            <input 
+                type="number" 
+                id="mathGateInput"
+                class="border-4 border-slate-800 p-3 text-center text-3xl w-full rounded-xl focus:border-blue-500 outline-none mb-6" 
+                placeholder="הכנס תשובה"
+            />
+            <button onclick="closeSupportModal()" class="text-slate-400 font-bold underline hover:text-slate-600 transition-colors">ביטול וסגירה</button>
+        </div>
+    </div>
+
+    <div id="gameOverlay" class="hidden fixed inset-0 z-[999] bg-slate-900 flex-col animate-in fade-in duration-200">
+        <div class="bg-slate-800 border-b-4 border-slate-950 p-4 flex justify-between items-center text-white">
+            <h3 id="gameOverlayTitle" class="font-black text-2xl tracking-wide px-2">שם המשחק</h3>
+            <button 
+                onclick="closeGame()" 
+                class="bg-red-500 hover:bg-red-600 px-6 py-2 rounded-xl font-black transition-colors border-2 border-red-800 shadow-[0_4px_0_0_#7f1d1d] active:shadow-none active:translate-y-1"
+            >
+                סגור משחק ✕
+            </button>
+        </div>
+        
+        <div id="gameComingSoon" class="hidden flex-1 bg-blue-50 flex-col justify-center items-center text-center p-8">
+            <div class="text-8xl mb-6">🛠️</div>
+            <h2 class="text-4xl font-black text-slate-800 mb-4">המשחק נמצא בפיתוח מואץ!</h2>
+            <p class="text-xl text-slate-600 max-w-2xl font-bold leading-relaxed">
+                אנחנו ב-ThinkFun עובדים קשה כדי להביא לכם את חווית המשחק הטובה והחינוכית ביותר. 
+                המשחק הזה ישלב טכנולוגיות מתקדמות ודרכים יצירתיות ללמוד ולהנות יחד. חזרו לבדוק אותנו ממש בקרוב!
+            </p>
+        </div>
+
+        <iframe 
+            id="gameIframe"
+            src="" 
+            class="flex-1 w-full bg-slate-100 hidden" 
+            frameBorder="0" 
+            allowFullScreen
+        ></iframe>
+    </div>
+
     <script>
-        function openStaticModal(id) { document.getElementById(id).classList.replace('hidden', 'flex'); document.body.style.overflow = 'hidden'; }
-        function closeStaticModal(id) { document.getElementById(id).classList.replace('flex', 'hidden'); document.body.style.overflow = 'auto'; }
-    </script>
+        // Modal logic
+        function openStaticModal(id) { 
+            document.getElementById(id).classList.remove('hidden'); 
+            document.getElementById(id).classList.add('flex'); 
+            document.body.style.overflow = 'hidden'; 
+        }
+        function closeStaticModal(id) { 
+            document.getElementById(id).classList.remove('flex'); 
+            document.getElementById(id).classList.add('hidden'); 
+            document.body.style.overflow = 'auto'; 
+        }
 
-    <script type="text/babel" data-presets="react,env">
-        const { useState, useEffect, useRef } = React;
+        // Support / Math Gate Logic
+        let supportTargetUrl = '';
+        function openSupportModal(url) {
+            supportTargetUrl = url;
+            const modal = document.getElementById('supportModal');
+            const input = document.getElementById('mathGateInput');
+            input.value = ''; // clear previous
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => input.focus(), 100);
+        }
 
-        // הוסרה קומפוננטת הפרסומות הישנה - כאן מוגדר חלל עתידי עבור AdSense
-        const AdSensePlaceholder = ({ className = "", style = {} }) => {
-            return (
-                <div className={`bg-transparent flex justify-center items-center ${className}`} style={style}>
-                    {/* כאן AdSense Auto Ads יכניסו את המודעות, או שתוכל להוסיף תגית <ins> מאוחר יותר */}
-                </div>
-            );
-        };
+        function closeSupportModal() {
+            document.getElementById('supportModal').classList.remove('flex');
+            document.getElementById('supportModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
 
-        const GAMES_DATA = [
-            { id: 'memory', title: 'זיכרון באנגלית', badge: '🗣️ שפות', badgeColor: 'bg-yellow-400 border-yellow-600', desc: 'הפכו את הקלפים, מצאו את הזוגות ולמדו מילים חדשות באנגלית דרך חוויה תחרותית המעשירה את אוצר המילים.', linkUrl: 'https://funmemorygame.vercel.app/', imageUrl: 'IMG_8043.jpeg' },
-            { id: 'puzzle', title: 'Fuzzle - פאזל הזזה', badge: '🧩 חשיבה', badgeColor: 'bg-pink-400 border-pink-600', desc: 'הזיזו את החלקים למקום הנכון והשלימו את התמונה! משחק המפתח חשיבה מרחבית ולוגיקה לילדים ולנוער.', linkUrl: 'https://fuzzlefungames.vercel.app/', imageUrl: 'IMG_8045.jpeg' },
-            { id: 'talio', title: 'Talio - משחק מילים', badge: 'בקרוב', badgeColor: 'bg-purple-400 border-purple-600', desc: 'הצחיקו את כולם! נסו לתאר את המילה בלי להשתמש במילים האסורות. משחק חברה שמתרגל שליפה מהירה מהזיכרון.', linkUrl: '', isComingSoon: true, imageUrl: 'IMG_8044.jpeg' }
-        ];
+        document.getElementById('mathGateInput').addEventListener('input', function(e) {
+            if (e.target.value === '18') {
+                window.open(supportTargetUrl, '_blank');
+                closeSupportModal();
+            }
+        });
 
-        const App = () => {
-            const [supportModal, setSupportModal] = useState({ isOpen: false, url: '' });
-            const [activeGame, setActiveGame] = useState(null);
+        // Game Overlay Logic
+        function openGame(url, title, isComingSoon) {
+            const overlay = document.getElementById('gameOverlay');
+            const titleEl = document.getElementById('gameOverlayTitle');
+            const comingSoonEl = document.getElementById('gameComingSoon');
+            const iframeEl = document.getElementById('gameIframe');
 
-            // נעילת גלילה כשהמשחק פתוח
-            useEffect(() => {
-                if (activeGame) {
-                    document.body.style.overflow = 'hidden';
-                } else {
-                    document.body.style.overflow = 'auto';
-                }
-            }, [activeGame]);
+            titleEl.innerText = title;
+            overlay.classList.remove('hidden');
+            overlay.classList.add('flex');
+            document.body.style.overflow = 'hidden';
 
-            return (
-                <div className="min-h-screen flex flex-col">
-                    
-                    {/* שטחי פרסום צידיים - מוכנים עבור AdSense Desktop */}
-                    <div className="ad-container-side ad-container-right">
-                        <AdSensePlaceholder className="w-[160px] h-[600px]" />
-                    </div>
-                    <div className="ad-container-side ad-container-left">
-                        <AdSensePlaceholder className="w-[160px] h-[600px]" />
-                    </div>
+            if (isComingSoon) {
+                comingSoonEl.classList.remove('hidden');
+                comingSoonEl.classList.add('flex');
+                iframeEl.classList.add('hidden');
+                iframeEl.src = '';
+            } else {
+                comingSoonEl.classList.add('hidden');
+                comingSoonEl.classList.remove('flex');
+                iframeEl.classList.remove('hidden');
+                iframeEl.src = url;
+            }
+        }
 
-                    <header className="bg-yellow-400 border-b-4 border-slate-800 py-4 px-6 sticky top-0 z-50 shadow-md">
-                        <div className="max-w-7xl mx-auto flex justify-between items-center">
-                            <h1 className="text-3xl font-black text-slate-800">Think<span className="text-blue-600">Fun</span> 🎮</h1>
-                            <nav className="hidden md:flex gap-6 font-bold">
-                                <a href="#educational-value" className="hover:text-blue-600">ערך חינוכי</a>
-                                <a href="#about" className="hover:text-blue-600">הסיפור שלנו</a>
-                                <a href="#faq" className="hover:text-blue-600">שאלות נפוצות</a>
-                                <a href="mailto:thinkfungames@gmail.com" className="hover:text-blue-600">צרו קשר</a>
-                            </nav>
-                        </div>
-                    </header>
-
-                    <main className="flex-1 max-w-6xl mx-auto w-full px-6 py-12">
-                        <div className="text-center mb-16">
-                            <h2 className="text-6xl md:text-8xl font-black text-outline mb-6">בואו לשחק!</h2>
-                            <p className="text-xl font-bold bg-white inline-block px-6 py-2 rounded-full border-4 border-slate-800 shadow-[4px_4px_0px_0px_#1e293b]">תבחרו משחק ונתחיל ללמוד 🚀</p>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                            {GAMES_DATA.map((game) => (
-                                <div key={game.id} className="flex flex-col gap-6">
-                                    <div className="toy-card flex flex-col group relative">
-                                        <div className={`absolute -top-3 -right-3 z-20 px-4 py-1 rounded-xl font-black border-4 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] ${game.badgeColor}`}>
-                                            {game.badge}
-                                        </div>
-                                        <div className="h-48 bg-blue-50 overflow-hidden border-b-4 border-slate-800 rounded-t-2xl">
-                                            {game.imageUrl ? (
-                                                <img src={game.imageUrl} alt={game.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform" onError={(e) => e.target.style.display='none'} />
-                                            ) : (
-                                                <div className="w-full h-full bg-slate-200 flex justify-center items-center text-5xl">🎮</div>
-                                            )}
-                                        </div>
-                                        <div className="p-6 flex-1 flex flex-col bg-white rounded-b-2xl">
-                                            <h3 className="text-2xl font-black mb-2 text-slate-800">{game.title}</h3>
-                                            <p className="text-slate-600 font-bold mb-6 flex-1">{game.desc}</p>
-                                            <div className="flex flex-col gap-3">
-                                                {/* כפתור פתיחת המשחק בתוך האתר */}
-                                                <button onClick={() => setActiveGame(game)} className="toy-button w-full py-4 text-xl">
-                                                    {game.isComingSoon ? 'קראו עוד' : 'שחק עכשיו!'}
-                                                </button>
-                                                <button onClick={() => setSupportModal({isOpen: true, url: 'https://bitpay...'})} className="coffee-button w-full py-2">תמכו עם קפה ☕</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <AdSensePlaceholder className="w-full min-h-[100px]" />
-                                </div>
-                            ))}
-                        </div>
-                    </main>
-
-                    {/* חלונית Iframe להצגת המשחקים במסך מלא ללא יציאה מהאתר */}
-                    {activeGame && (
-                        <div className="fixed inset-0 z-[999] bg-slate-900 flex flex-col animate-in fade-in duration-200">
-                            <div className="bg-slate-800 border-b-4 border-slate-950 p-4 flex justify-between items-center text-white">
-                                <h3 className="font-black text-2xl tracking-wide px-2">{activeGame.title}</h3>
-                                <button 
-                                    onClick={() => setActiveGame(null)} 
-                                    className="bg-red-500 hover:bg-red-600 px-6 py-2 rounded-xl font-black transition-colors border-2 border-red-800 shadow-[0_4px_0_0_#7f1d1d] active:shadow-none active:translate-y-1"
-                                >
-                                    סגור משחק ✕
-                                </button>
-                            </div>
-                            
-                            {activeGame.isComingSoon ? (
-                                <div className="flex-1 bg-blue-50 flex flex-col justify-center items-center text-center p-8">
-                                    <div className="text-8xl mb-6">🛠️</div>
-                                    <h2 className="text-4xl font-black text-slate-800 mb-4">המשחק נמצא בפיתוח!</h2>
-                                    <p className="text-xl text-slate-600 max-w-2xl font-bold">
-                                        אנחנו עובדים קשה כדי להביא לכם את חווית משחק המילים הטובה והחינוכית ביותר. 
-                                        המשחק ישלב טכנולוגיות מתקדמות ודרכים יצירתיות ללמוד ולהנות. חזרו לבדוק בקרוב!
-                                    </p>
-                                </div>
-                            ) : (
-                                <iframe 
-                                    src={activeGame.linkUrl} 
-                                    className="flex-1 w-full bg-slate-100" 
-                                    frameBorder="0" 
-                                    allowFullScreen
-                                    title={activeGame.title}
-                                ></iframe>
-                            )}
-                        </div>
-                    )}
-
-                    {supportModal.isOpen && (
-                        <div className="fixed inset-0 z-[300] bg-slate-900/90 flex justify-center items-center p-4 backdrop-blur-sm">
-                            <div className="bg-white p-8 rounded-3xl border-4 border-slate-800 max-w-sm w-full text-center shadow-2xl">
-                                <h3 className="text-2xl font-black mb-4">אזור הורים 🛡️</h3>
-                                <p className="mb-4 font-bold text-slate-600">כמה זה 6 כפול 3?</p>
-                                <input 
-                                    type="number" 
-                                    autoFocus
-                                    onChange={(e) => {
-                                        if (e.target.value === '18') {
-                                            window.open(supportModal.url, '_blank');
-                                            setSupportModal({isOpen: false, url: ''});
-                                        }
-                                    }} 
-                                    className="border-4 border-slate-800 p-3 text-center text-3xl w-full rounded-xl focus:border-blue-500 outline-none" 
-                                    placeholder="?"
-                                />
-                                <button onClick={() => setSupportModal({isOpen:false})} className="mt-6 text-slate-400 font-bold underline hover:text-slate-600 transition-colors">סגור</button>
-                            </div>
-                        </div>
-                    )}
-                </div>
-            );
-        };
-
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
+        function closeGame() {
+            const overlay = document.getElementById('gameOverlay');
+            const iframeEl = document.getElementById('gameIframe');
+            overlay.classList.remove('flex');
+            overlay.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            iframeEl.src = ''; // Stop game loading/audio when closed
+        }
     </script>
 </body>
 </html>
